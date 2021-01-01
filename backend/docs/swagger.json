@@ -1,0 +1,1591 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a sample server for SUT SE 2563",
+        "title": "SUT SA Example API",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "name": "API Support",
+            "url": "http://www.swagger.io/support",
+            "email": "support@swagger.io"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0"
+    },
+    "host": "localhost:8080",
+    "basePath": "/api/v1",
+    "paths": {
+        "/Insurances": {
+            "post": {
+                "description": "Create Insurance",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Create Insurance",
+                "operationId": "create-Insurance",
+                "parameters": [
+                    {
+                        "description": "Insurance entity",
+                        "name": "Insurance",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ent.Insurance"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ent.Insurance"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    }
+                }
+            }
+        },
+        "/abilitypatientrightss": {
+            "get": {
+                "description": "list abilitypatientrights entities",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "List abilitypatientrights entities",
+                "operationId": "list-abilitypatientrights",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Limit",
+                        "name": "limit",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Offset",
+                        "name": "offset",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ent.Abilitypatientrights"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Create abilitypatientrights",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Create abilitypatientrights",
+                "operationId": "create-abilitypatientrights",
+                "parameters": [
+                    {
+                        "description": "Abilitypatientrights entity",
+                        "name": "abilitypatientrights",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ent.Abilitypatientrights"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ent.Abilitypatientrights"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    }
+                }
+            }
+        },
+        "/abilitypatientrightss/{id}": {
+            "get": {
+                "description": "get abilitypatientrights by ID",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Get a abilitypatientrights entity by ID",
+                "operationId": "get-abilitypatientrights",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Abilitypatientrights ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ent.Abilitypatientrights"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "update abilitypatientrights by ID",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Update a abilitypatientrights entity by ID",
+                "operationId": "update-abilitypatientrights",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Abilitypatientrights ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "Abilitypatientrights entity",
+                        "name": "abilitypatientrights",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ent.Abilitypatientrights"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ent.Abilitypatientrights"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "get abilitypatientrights by ID",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Delete a abilitypatientrights entity by ID",
+                "operationId": "delete-abilitypatientrights",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Abilitypatientrights ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    }
+                }
+            }
+        },
+        "/insurances": {
+            "get": {
+                "description": "list insurance entities",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "List insurance entities",
+                "operationId": "list-insurance",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Limit",
+                        "name": "limit",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Offset",
+                        "name": "offset",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ent.Insurance"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    }
+                }
+            }
+        },
+        "/insurances/{id}": {
+            "get": {
+                "description": "get Insurance by ID",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Get a Insurance entity by ID",
+                "operationId": "get-insurance",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Insurance ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ent.Insurance"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "update insurance by ID",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Update a insurance entity by ID",
+                "operationId": "update-insurance",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Insurance ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "Insurance entity",
+                        "name": "insurance",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ent.Insurance"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ent.Insurance"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    }
+                }
+            }
+        },
+        "/medicalrecordstaffs": {
+            "get": {
+                "description": "list medicalrecordstaff entities",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "List medicalrecordstaff entities",
+                "operationId": "list-medicalrecordstaff",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Limit",
+                        "name": "limit",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Offset",
+                        "name": "offset",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ent.Medicalrecordstaff"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Create medicalrecordstaff",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Create medicalrecordstaff",
+                "operationId": "create-medicalrecordstaff",
+                "parameters": [
+                    {
+                        "description": "Medicalrecordstaff entity",
+                        "name": "medicalrecordstaff",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ent.Medicalrecordstaff"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ent.Medicalrecordstaff"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    }
+                }
+            }
+        },
+        "/medicalrecordstaffs/{id}": {
+            "get": {
+                "description": "get medicalrecordstaff by ID",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Get a medicalrecordstaff entity by ID",
+                "operationId": "get-medicalrecordstaff",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Medicalrecordstaff ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ent.Medicalrecordstaff"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "update medicalrecordstaff by ID",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Update a medicalrecordstaff entity by ID",
+                "operationId": "update-medicalrecordstaff",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Medicalrecordstaff ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "Medicalrecordstaff entity",
+                        "name": "medicalrecordstaff",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ent.Medicalrecordstaff"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ent.Medicalrecordstaff"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "get medicalrecordstaff by ID",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Delete a medicalrecordstaff entity by ID",
+                "operationId": "delete-medicalrecordstaff",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Medicalrecordstaff ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    }
+                }
+            }
+        },
+        "/patientrecords": {
+            "get": {
+                "description": "list patientrecord entities",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "List patientrecord entities",
+                "operationId": "list-patientrecord",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Limit",
+                        "name": "limit",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Offset",
+                        "name": "offset",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ent.Patientrecord"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Create patientrecord",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Create patientrecord",
+                "operationId": "create-patientrecord",
+                "parameters": [
+                    {
+                        "description": "Patientrecord entity",
+                        "name": "patientrecord",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ent.Patientrecord"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ent.Patientrecord"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    }
+                }
+            }
+        },
+        "/patientrecords/{id}": {
+            "get": {
+                "description": "get patientrecord by ID",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Get a patientrecord entity by ID",
+                "operationId": "get-patientrecord",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Patientrecord ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ent.Patientrecord"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "update patientrecord by ID",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Update a patientrecord entity by ID",
+                "operationId": "update-patientrecord",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Patientrecord ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "Patientrecord entity",
+                        "name": "patientrecord",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ent.Patientrecord"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ent.Patientrecord"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "get patientrecord by ID",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Delete a patientrecord entity by ID",
+                "operationId": "delete-patientrecord",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Patientrecord ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    }
+                }
+            }
+        },
+        "/patientrightss": {
+            "get": {
+                "description": "list patientrights entities",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "List patientrights entities",
+                "operationId": "list-patientrights",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Limit",
+                        "name": "limit",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Offset",
+                        "name": "offset",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ent.Patientrights"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Create Patientrights",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Create Patientrights",
+                "operationId": "create-Patientrights",
+                "parameters": [
+                    {
+                        "description": "Patientrights entity",
+                        "name": "Patientrights",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/controllers.Patientrights"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/controllers.Patientrights"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    }
+                }
+            }
+        },
+        "/patientrightss/{id}": {
+            "get": {
+                "description": "get Patientrights by ID",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Get a Patientrights entity by ID",
+                "operationId": "get-patientrights",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Patientrights ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ent.Patientrights"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "get patientrights by ID",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Delete a patientrights entity by ID",
+                "operationId": "delete-patientrights",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Patientrights ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    }
+                }
+            }
+        },
+        "/patientrightstypes": {
+            "get": {
+                "description": "list patientrightstype entities",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "List patientrightstype entities",
+                "operationId": "list-patientrightstype",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Limit",
+                        "name": "limit",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Offset",
+                        "name": "offset",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ent.Patientrightstype"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Create patientrightstype",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Create patientrightstype",
+                "operationId": "create-patientrightstype",
+                "parameters": [
+                    {
+                        "description": "Patientrightstype entity",
+                        "name": "patientrightstype",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ent.Patientrightstype"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ent.Patientrightstype"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    }
+                }
+            }
+        },
+        "/patientrightstypes/{id}": {
+            "get": {
+                "description": "get patientrightstype by ID",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Get a patientrightstype entity by ID",
+                "operationId": "get-patientrightstype",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Patientrightstype ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ent.Patientrightstype"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "update patientrightstype by ID",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Update a patientrightstype entity by ID",
+                "operationId": "update-patientrightstype",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Patientrightstype ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "Patientrightstype entity",
+                        "name": "patientrightstype",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ent.Patientrightstype"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ent.Patientrightstype"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "get patientrightstype by ID",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Delete a patientrightstype entity by ID",
+                "operationId": "delete-patientrightstype",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Patientrightstype ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "controllers.Patientrights": {
+            "type": "object",
+            "properties": {
+                "abilitypatientrights": {
+                    "type": "integer"
+                },
+                "insurance": {
+                    "type": "integer"
+                },
+                "medicalrecordstaff": {
+                    "type": "integer"
+                },
+                "patientrecord": {
+                    "type": "integer"
+                },
+                "patientrightstype": {
+                    "type": "integer"
+                },
+                "permissionDate": {
+                    "type": "string"
+                }
+            }
+        },
+        "ent.Abilitypatientrights": {
+            "type": "object",
+            "properties": {
+                "Examine": {
+                    "description": "Examine holds the value of the \"Examine\" field.",
+                    "type": "string"
+                },
+                "MedicalSupplies": {
+                    "description": "MedicalSupplies holds the value of the \"MedicalSupplies\" field.",
+                    "type": "string"
+                },
+                "Operative": {
+                    "description": "Operative holds the value of the \"Operative\" field.",
+                    "type": "string"
+                },
+                "edges": {
+                    "description": "Edges holds the relations/edges for other nodes in the graph.\nThe values are being populated by the AbilitypatientrightsQuery when eager-loading is set.",
+                    "type": "object",
+                    "$ref": "#/definitions/ent.AbilitypatientrightsEdges"
+                },
+                "id": {
+                    "description": "ID of the ent.",
+                    "type": "integer"
+                }
+            }
+        },
+        "ent.AbilitypatientrightsEdges": {
+            "type": "object",
+            "properties": {
+                "abilitypatientrightsPatientrightstype": {
+                    "description": "AbilitypatientrightsPatientrightstype holds the value of the AbilitypatientrightsPatientrightstype edge.",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ent.Patientrightstype"
+                    }
+                }
+            }
+        },
+        "ent.Insurance": {
+            "type": "object",
+            "properties": {
+                "Insurancecompany": {
+                    "description": "Insurancecompany holds the value of the \"Insurancecompany\" field.",
+                    "type": "string"
+                },
+                "edges": {
+                    "description": "Edges holds the relations/edges for other nodes in the graph.\nThe values are being populated by the InsuranceQuery when eager-loading is set.",
+                    "type": "object",
+                    "$ref": "#/definitions/ent.InsuranceEdges"
+                },
+                "id": {
+                    "description": "ID of the ent.",
+                    "type": "integer"
+                }
+            }
+        },
+        "ent.InsuranceEdges": {
+            "type": "object",
+            "properties": {
+                "insurancePatientrights": {
+                    "description": "InsurancePatientrights holds the value of the InsurancePatientrights edge.",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ent.Patientrights"
+                    }
+                }
+            }
+        },
+        "ent.Medicalrecordstaff": {
+            "type": "object",
+            "properties": {
+                "edges": {
+                    "description": "Edges holds the relations/edges for other nodes in the graph.\nThe values are being populated by the MedicalrecordstaffQuery when eager-loading is set.",
+                    "type": "object",
+                    "$ref": "#/definitions/ent.MedicalrecordstaffEdges"
+                },
+                "id": {
+                    "description": "ID of the ent.",
+                    "type": "integer"
+                }
+            }
+        },
+        "ent.MedicalrecordstaffEdges": {
+            "type": "object",
+            "properties": {
+                "medicalrecordstaffPatientrights": {
+                    "description": "MedicalrecordstaffPatientrights holds the value of the MedicalrecordstaffPatientrights edge.",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ent.Patientrights"
+                    }
+                }
+            }
+        },
+        "ent.Patientrecord": {
+            "type": "object",
+            "properties": {
+                "Name": {
+                    "description": "Name holds the value of the \"Name\" field.",
+                    "type": "string"
+                },
+                "edges": {
+                    "description": "Edges holds the relations/edges for other nodes in the graph.\nThe values are being populated by the PatientrecordQuery when eager-loading is set.",
+                    "type": "object",
+                    "$ref": "#/definitions/ent.PatientrecordEdges"
+                },
+                "id": {
+                    "description": "ID of the ent.",
+                    "type": "integer"
+                }
+            }
+        },
+        "ent.PatientrecordEdges": {
+            "type": "object",
+            "properties": {
+                "patientrecordPatientrights": {
+                    "description": "PatientrecordPatientrights holds the value of the PatientrecordPatientrights edge.",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ent.Patientrights"
+                    }
+                }
+            }
+        },
+        "ent.Patientrights": {
+            "type": "object",
+            "properties": {
+                "PermissionDate": {
+                    "description": "PermissionDate holds the value of the \"PermissionDate\" field.",
+                    "type": "string"
+                },
+                "edges": {
+                    "description": "Edges holds the relations/edges for other nodes in the graph.\nThe values are being populated by the PatientrightsQuery when eager-loading is set.",
+                    "type": "object",
+                    "$ref": "#/definitions/ent.PatientrightsEdges"
+                },
+                "id": {
+                    "description": "ID of the ent.",
+                    "type": "integer"
+                },
+                "insurancePatientrights_id": {
+                    "type": "integer"
+                },
+                "medicalrecordstaff_id": {
+                    "type": "integer"
+                },
+                "patientrecord_id": {
+                    "type": "integer"
+                },
+                "patientrightstype_id": {
+                    "type": "integer"
+                }
+            }
+        },
+        "ent.PatientrightsEdges": {
+            "type": "object",
+            "properties": {
+                "patientrightsInsurance": {
+                    "description": "PatientrightsInsurance holds the value of the PatientrightsInsurance edge.",
+                    "type": "object",
+                    "$ref": "#/definitions/ent.Insurance"
+                },
+                "patientrightsMedicalrecordstaff": {
+                    "description": "PatientrightsMedicalrecordstaff holds the value of the PatientrightsMedicalrecordstaff edge.",
+                    "type": "object",
+                    "$ref": "#/definitions/ent.Medicalrecordstaff"
+                },
+                "patientrightsPatientrecord": {
+                    "description": "PatientrightsPatientrecord holds the value of the PatientrightsPatientrecord edge.",
+                    "type": "object",
+                    "$ref": "#/definitions/ent.Patientrecord"
+                },
+                "patientrightsPatientrightstype": {
+                    "description": "PatientrightsPatientrightstype holds the value of the PatientrightsPatientrightstype edge.",
+                    "type": "object",
+                    "$ref": "#/definitions/ent.Patientrightstype"
+                }
+            }
+        },
+        "ent.Patientrightstype": {
+            "type": "object",
+            "properties": {
+                "Permission": {
+                    "description": "Permission holds the value of the \"Permission\" field.",
+                    "type": "string"
+                },
+                "PermissionArea": {
+                    "description": "PermissionArea holds the value of the \"PermissionArea\" field.",
+                    "type": "string"
+                },
+                "Responsible": {
+                    "description": "Responsible holds the value of the \"Responsible\" field.",
+                    "type": "string"
+                },
+                "abilitypatientrights_id": {
+                    "type": "integer"
+                },
+                "edges": {
+                    "description": "Edges holds the relations/edges for other nodes in the graph.\nThe values are being populated by the PatientrightstypeQuery when eager-loading is set.",
+                    "type": "object",
+                    "$ref": "#/definitions/ent.PatientrightstypeEdges"
+                },
+                "id": {
+                    "description": "ID of the ent.",
+                    "type": "integer"
+                }
+            }
+        },
+        "ent.PatientrightstypeEdges": {
+            "type": "object",
+            "properties": {
+                "patientrightstypeAbilitypatientrights": {
+                    "description": "PatientrightstypeAbilitypatientrights holds the value of the PatientrightstypeAbilitypatientrights edge.",
+                    "type": "object",
+                    "$ref": "#/definitions/ent.Abilitypatientrights"
+                },
+                "patientrightstypePatientrights": {
+                    "description": "PatientrightstypePatientrights holds the value of the PatientrightstypePatientrights edge.",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ent.Patientrights"
+                    }
+                }
+            }
+        },
+        "gin.H": {
+            "type": "object",
+            "additionalProperties": true
+        }
+    },
+    "securityDefinitions": {
+        "ApiKeyAuth": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        },
+        "BasicAuth": {
+            "type": "basic"
+        },
+        "OAuth2AccessCode": {
+            "type": "oauth2",
+            "flow": "accessCode",
+            "authorizationUrl": "https://example.com/oauth/authorize",
+            "tokenUrl": "https://example.com/oauth/token",
+            "scopes": {
+                "admin": " Grants read and write access to administrative information"
+            }
+        },
+        "OAuth2Application": {
+            "type": "oauth2",
+            "flow": "application",
+            "authorizationUrl": "",
+            "tokenUrl": "https://example.com/oauth/token",
+            "scopes": {
+                "admin": " Grants read and write access to administrative information",
+                "write": " Grants write access"
+            }
+        },
+        "OAuth2Implicit": {
+            "type": "oauth2",
+            "flow": "implicit",
+            "authorizationUrl": "https://example.com/oauth/authorize",
+            "scopes": {
+                "admin": " Grants read and write access to administrative information",
+                "write": " Grants write access"
+            }
+        },
+        "OAuth2Password": {
+            "type": "oauth2",
+            "flow": "password",
+            "authorizationUrl": "",
+            "tokenUrl": "https://example.com/oauth/token",
+            "scopes": {
+                "admin": " Grants read and write access to administrative information",
+                "read": " Grants read access",
+                "write": " Grants write access"
+            }
+        }
+    }
+}

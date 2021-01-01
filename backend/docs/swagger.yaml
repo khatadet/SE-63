@@ -1,0 +1,1100 @@
+basePath: /api/v1
+definitions:
+  controllers.Patientrights:
+    properties:
+      abilitypatientrights:
+        type: integer
+      insurance:
+        type: integer
+      medicalrecordstaff:
+        type: integer
+      patientrecord:
+        type: integer
+      patientrightstype:
+        type: integer
+      permissionDate:
+        type: string
+    type: object
+  ent.Abilitypatientrights:
+    properties:
+      Examine:
+        description: Examine holds the value of the "Examine" field.
+        type: string
+      MedicalSupplies:
+        description: MedicalSupplies holds the value of the "MedicalSupplies" field.
+        type: string
+      Operative:
+        description: Operative holds the value of the "Operative" field.
+        type: string
+      edges:
+        $ref: '#/definitions/ent.AbilitypatientrightsEdges'
+        description: |-
+          Edges holds the relations/edges for other nodes in the graph.
+          The values are being populated by the AbilitypatientrightsQuery when eager-loading is set.
+        type: object
+      id:
+        description: ID of the ent.
+        type: integer
+    type: object
+  ent.AbilitypatientrightsEdges:
+    properties:
+      abilitypatientrightsPatientrightstype:
+        description: AbilitypatientrightsPatientrightstype holds the value of the
+          AbilitypatientrightsPatientrightstype edge.
+        items:
+          $ref: '#/definitions/ent.Patientrightstype'
+        type: array
+    type: object
+  ent.Insurance:
+    properties:
+      Insurancecompany:
+        description: Insurancecompany holds the value of the "Insurancecompany" field.
+        type: string
+      edges:
+        $ref: '#/definitions/ent.InsuranceEdges'
+        description: |-
+          Edges holds the relations/edges for other nodes in the graph.
+          The values are being populated by the InsuranceQuery when eager-loading is set.
+        type: object
+      id:
+        description: ID of the ent.
+        type: integer
+    type: object
+  ent.InsuranceEdges:
+    properties:
+      insurancePatientrights:
+        description: InsurancePatientrights holds the value of the InsurancePatientrights
+          edge.
+        items:
+          $ref: '#/definitions/ent.Patientrights'
+        type: array
+    type: object
+  ent.Medicalrecordstaff:
+    properties:
+      edges:
+        $ref: '#/definitions/ent.MedicalrecordstaffEdges'
+        description: |-
+          Edges holds the relations/edges for other nodes in the graph.
+          The values are being populated by the MedicalrecordstaffQuery when eager-loading is set.
+        type: object
+      id:
+        description: ID of the ent.
+        type: integer
+    type: object
+  ent.MedicalrecordstaffEdges:
+    properties:
+      medicalrecordstaffPatientrights:
+        description: MedicalrecordstaffPatientrights holds the value of the MedicalrecordstaffPatientrights
+          edge.
+        items:
+          $ref: '#/definitions/ent.Patientrights'
+        type: array
+    type: object
+  ent.Patientrecord:
+    properties:
+      Name:
+        description: Name holds the value of the "Name" field.
+        type: string
+      edges:
+        $ref: '#/definitions/ent.PatientrecordEdges'
+        description: |-
+          Edges holds the relations/edges for other nodes in the graph.
+          The values are being populated by the PatientrecordQuery when eager-loading is set.
+        type: object
+      id:
+        description: ID of the ent.
+        type: integer
+    type: object
+  ent.PatientrecordEdges:
+    properties:
+      patientrecordPatientrights:
+        description: PatientrecordPatientrights holds the value of the PatientrecordPatientrights
+          edge.
+        items:
+          $ref: '#/definitions/ent.Patientrights'
+        type: array
+    type: object
+  ent.Patientrights:
+    properties:
+      PermissionDate:
+        description: PermissionDate holds the value of the "PermissionDate" field.
+        type: string
+      edges:
+        $ref: '#/definitions/ent.PatientrightsEdges'
+        description: |-
+          Edges holds the relations/edges for other nodes in the graph.
+          The values are being populated by the PatientrightsQuery when eager-loading is set.
+        type: object
+      id:
+        description: ID of the ent.
+        type: integer
+      insurancePatientrights_id:
+        type: integer
+      medicalrecordstaff_id:
+        type: integer
+      patientrecord_id:
+        type: integer
+      patientrightstype_id:
+        type: integer
+    type: object
+  ent.PatientrightsEdges:
+    properties:
+      patientrightsInsurance:
+        $ref: '#/definitions/ent.Insurance'
+        description: PatientrightsInsurance holds the value of the PatientrightsInsurance
+          edge.
+        type: object
+      patientrightsMedicalrecordstaff:
+        $ref: '#/definitions/ent.Medicalrecordstaff'
+        description: PatientrightsMedicalrecordstaff holds the value of the PatientrightsMedicalrecordstaff
+          edge.
+        type: object
+      patientrightsPatientrecord:
+        $ref: '#/definitions/ent.Patientrecord'
+        description: PatientrightsPatientrecord holds the value of the PatientrightsPatientrecord
+          edge.
+        type: object
+      patientrightsPatientrightstype:
+        $ref: '#/definitions/ent.Patientrightstype'
+        description: PatientrightsPatientrightstype holds the value of the PatientrightsPatientrightstype
+          edge.
+        type: object
+    type: object
+  ent.Patientrightstype:
+    properties:
+      Permission:
+        description: Permission holds the value of the "Permission" field.
+        type: string
+      PermissionArea:
+        description: PermissionArea holds the value of the "PermissionArea" field.
+        type: string
+      Responsible:
+        description: Responsible holds the value of the "Responsible" field.
+        type: string
+      abilitypatientrights_id:
+        type: integer
+      edges:
+        $ref: '#/definitions/ent.PatientrightstypeEdges'
+        description: |-
+          Edges holds the relations/edges for other nodes in the graph.
+          The values are being populated by the PatientrightstypeQuery when eager-loading is set.
+        type: object
+      id:
+        description: ID of the ent.
+        type: integer
+    type: object
+  ent.PatientrightstypeEdges:
+    properties:
+      patientrightstypeAbilitypatientrights:
+        $ref: '#/definitions/ent.Abilitypatientrights'
+        description: PatientrightstypeAbilitypatientrights holds the value of the
+          PatientrightstypeAbilitypatientrights edge.
+        type: object
+      patientrightstypePatientrights:
+        description: PatientrightstypePatientrights holds the value of the PatientrightstypePatientrights
+          edge.
+        items:
+          $ref: '#/definitions/ent.Patientrights'
+        type: array
+    type: object
+  gin.H:
+    additionalProperties: true
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: This is a sample server for SUT SE 2563
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: SUT SA Example API
+  version: "1.0"
+paths:
+  /Insurances:
+    post:
+      consumes:
+      - application/json
+      description: Create Insurance
+      operationId: create-Insurance
+      parameters:
+      - description: Insurance entity
+        in: body
+        name: Insurance
+        required: true
+        schema:
+          $ref: '#/definitions/ent.Insurance'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/ent.Insurance'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/gin.H'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/gin.H'
+      summary: Create Insurance
+  /abilitypatientrightss:
+    get:
+      description: list abilitypatientrights entities
+      operationId: list-abilitypatientrights
+      parameters:
+      - description: Limit
+        in: query
+        name: limit
+        type: integer
+      - description: Offset
+        in: query
+        name: offset
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/ent.Abilitypatientrights'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/gin.H'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/gin.H'
+      summary: List abilitypatientrights entities
+    post:
+      consumes:
+      - application/json
+      description: Create abilitypatientrights
+      operationId: create-abilitypatientrights
+      parameters:
+      - description: Abilitypatientrights entity
+        in: body
+        name: abilitypatientrights
+        required: true
+        schema:
+          $ref: '#/definitions/ent.Abilitypatientrights'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/ent.Abilitypatientrights'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/gin.H'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/gin.H'
+      summary: Create abilitypatientrights
+  /abilitypatientrightss/{id}:
+    delete:
+      description: get abilitypatientrights by ID
+      operationId: delete-abilitypatientrights
+      parameters:
+      - description: Abilitypatientrights ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/gin.H'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/gin.H'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/gin.H'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/gin.H'
+      summary: Delete a abilitypatientrights entity by ID
+    get:
+      description: get abilitypatientrights by ID
+      operationId: get-abilitypatientrights
+      parameters:
+      - description: Abilitypatientrights ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/ent.Abilitypatientrights'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/gin.H'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/gin.H'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/gin.H'
+      summary: Get a abilitypatientrights entity by ID
+    put:
+      consumes:
+      - application/json
+      description: update abilitypatientrights by ID
+      operationId: update-abilitypatientrights
+      parameters:
+      - description: Abilitypatientrights ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Abilitypatientrights entity
+        in: body
+        name: abilitypatientrights
+        required: true
+        schema:
+          $ref: '#/definitions/ent.Abilitypatientrights'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/ent.Abilitypatientrights'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/gin.H'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/gin.H'
+      summary: Update a abilitypatientrights entity by ID
+  /insurances:
+    get:
+      description: list insurance entities
+      operationId: list-insurance
+      parameters:
+      - description: Limit
+        in: query
+        name: limit
+        type: integer
+      - description: Offset
+        in: query
+        name: offset
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/ent.Insurance'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/gin.H'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/gin.H'
+      summary: List insurance entities
+  /insurances/{id}:
+    get:
+      description: get Insurance by ID
+      operationId: get-insurance
+      parameters:
+      - description: Insurance ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/ent.Insurance'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/gin.H'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/gin.H'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/gin.H'
+      summary: Get a Insurance entity by ID
+    put:
+      consumes:
+      - application/json
+      description: update insurance by ID
+      operationId: update-insurance
+      parameters:
+      - description: Insurance ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Insurance entity
+        in: body
+        name: insurance
+        required: true
+        schema:
+          $ref: '#/definitions/ent.Insurance'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/ent.Insurance'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/gin.H'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/gin.H'
+      summary: Update a insurance entity by ID
+  /medicalrecordstaffs:
+    get:
+      description: list medicalrecordstaff entities
+      operationId: list-medicalrecordstaff
+      parameters:
+      - description: Limit
+        in: query
+        name: limit
+        type: integer
+      - description: Offset
+        in: query
+        name: offset
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/ent.Medicalrecordstaff'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/gin.H'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/gin.H'
+      summary: List medicalrecordstaff entities
+    post:
+      consumes:
+      - application/json
+      description: Create medicalrecordstaff
+      operationId: create-medicalrecordstaff
+      parameters:
+      - description: Medicalrecordstaff entity
+        in: body
+        name: medicalrecordstaff
+        required: true
+        schema:
+          $ref: '#/definitions/ent.Medicalrecordstaff'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/ent.Medicalrecordstaff'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/gin.H'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/gin.H'
+      summary: Create medicalrecordstaff
+  /medicalrecordstaffs/{id}:
+    delete:
+      description: get medicalrecordstaff by ID
+      operationId: delete-medicalrecordstaff
+      parameters:
+      - description: Medicalrecordstaff ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/gin.H'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/gin.H'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/gin.H'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/gin.H'
+      summary: Delete a medicalrecordstaff entity by ID
+    get:
+      description: get medicalrecordstaff by ID
+      operationId: get-medicalrecordstaff
+      parameters:
+      - description: Medicalrecordstaff ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/ent.Medicalrecordstaff'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/gin.H'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/gin.H'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/gin.H'
+      summary: Get a medicalrecordstaff entity by ID
+    put:
+      consumes:
+      - application/json
+      description: update medicalrecordstaff by ID
+      operationId: update-medicalrecordstaff
+      parameters:
+      - description: Medicalrecordstaff ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Medicalrecordstaff entity
+        in: body
+        name: medicalrecordstaff
+        required: true
+        schema:
+          $ref: '#/definitions/ent.Medicalrecordstaff'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/ent.Medicalrecordstaff'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/gin.H'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/gin.H'
+      summary: Update a medicalrecordstaff entity by ID
+  /patientrecords:
+    get:
+      description: list patientrecord entities
+      operationId: list-patientrecord
+      parameters:
+      - description: Limit
+        in: query
+        name: limit
+        type: integer
+      - description: Offset
+        in: query
+        name: offset
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/ent.Patientrecord'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/gin.H'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/gin.H'
+      summary: List patientrecord entities
+    post:
+      consumes:
+      - application/json
+      description: Create patientrecord
+      operationId: create-patientrecord
+      parameters:
+      - description: Patientrecord entity
+        in: body
+        name: patientrecord
+        required: true
+        schema:
+          $ref: '#/definitions/ent.Patientrecord'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/ent.Patientrecord'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/gin.H'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/gin.H'
+      summary: Create patientrecord
+  /patientrecords/{id}:
+    delete:
+      description: get patientrecord by ID
+      operationId: delete-patientrecord
+      parameters:
+      - description: Patientrecord ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/gin.H'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/gin.H'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/gin.H'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/gin.H'
+      summary: Delete a patientrecord entity by ID
+    get:
+      description: get patientrecord by ID
+      operationId: get-patientrecord
+      parameters:
+      - description: Patientrecord ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/ent.Patientrecord'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/gin.H'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/gin.H'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/gin.H'
+      summary: Get a patientrecord entity by ID
+    put:
+      consumes:
+      - application/json
+      description: update patientrecord by ID
+      operationId: update-patientrecord
+      parameters:
+      - description: Patientrecord ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Patientrecord entity
+        in: body
+        name: patientrecord
+        required: true
+        schema:
+          $ref: '#/definitions/ent.Patientrecord'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/ent.Patientrecord'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/gin.H'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/gin.H'
+      summary: Update a patientrecord entity by ID
+  /patientrightss:
+    get:
+      description: list patientrights entities
+      operationId: list-patientrights
+      parameters:
+      - description: Limit
+        in: query
+        name: limit
+        type: integer
+      - description: Offset
+        in: query
+        name: offset
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/ent.Patientrights'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/gin.H'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/gin.H'
+      summary: List patientrights entities
+    post:
+      consumes:
+      - application/json
+      description: Create Patientrights
+      operationId: create-Patientrights
+      parameters:
+      - description: Patientrights entity
+        in: body
+        name: Patientrights
+        required: true
+        schema:
+          $ref: '#/definitions/controllers.Patientrights'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controllers.Patientrights'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/gin.H'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/gin.H'
+      summary: Create Patientrights
+  /patientrightss/{id}:
+    delete:
+      description: get patientrights by ID
+      operationId: delete-patientrights
+      parameters:
+      - description: Patientrights ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/gin.H'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/gin.H'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/gin.H'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/gin.H'
+      summary: Delete a patientrights entity by ID
+    get:
+      description: get Patientrights by ID
+      operationId: get-patientrights
+      parameters:
+      - description: Patientrights ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/ent.Patientrights'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/gin.H'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/gin.H'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/gin.H'
+      summary: Get a Patientrights entity by ID
+  /patientrightstypes:
+    get:
+      description: list patientrightstype entities
+      operationId: list-patientrightstype
+      parameters:
+      - description: Limit
+        in: query
+        name: limit
+        type: integer
+      - description: Offset
+        in: query
+        name: offset
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/ent.Patientrightstype'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/gin.H'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/gin.H'
+      summary: List patientrightstype entities
+    post:
+      consumes:
+      - application/json
+      description: Create patientrightstype
+      operationId: create-patientrightstype
+      parameters:
+      - description: Patientrightstype entity
+        in: body
+        name: patientrightstype
+        required: true
+        schema:
+          $ref: '#/definitions/ent.Patientrightstype'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/ent.Patientrightstype'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/gin.H'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/gin.H'
+      summary: Create patientrightstype
+  /patientrightstypes/{id}:
+    delete:
+      description: get patientrightstype by ID
+      operationId: delete-patientrightstype
+      parameters:
+      - description: Patientrightstype ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/gin.H'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/gin.H'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/gin.H'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/gin.H'
+      summary: Delete a patientrightstype entity by ID
+    get:
+      description: get patientrightstype by ID
+      operationId: get-patientrightstype
+      parameters:
+      - description: Patientrightstype ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/ent.Patientrightstype'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/gin.H'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/gin.H'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/gin.H'
+      summary: Get a patientrightstype entity by ID
+    put:
+      consumes:
+      - application/json
+      description: update patientrightstype by ID
+      operationId: update-patientrightstype
+      parameters:
+      - description: Patientrightstype ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Patientrightstype entity
+        in: body
+        name: patientrightstype
+        required: true
+        schema:
+          $ref: '#/definitions/ent.Patientrightstype'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/ent.Patientrightstype'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/gin.H'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/gin.H'
+      summary: Update a patientrightstype entity by ID
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+  BasicAuth:
+    type: basic
+  OAuth2AccessCode:
+    authorizationUrl: https://example.com/oauth/authorize
+    flow: accessCode
+    scopes:
+      admin: ' Grants read and write access to administrative information'
+    tokenUrl: https://example.com/oauth/token
+    type: oauth2
+  OAuth2Application:
+    authorizationUrl: ""
+    flow: application
+    scopes:
+      admin: ' Grants read and write access to administrative information'
+      write: ' Grants write access'
+    tokenUrl: https://example.com/oauth/token
+    type: oauth2
+  OAuth2Implicit:
+    authorizationUrl: https://example.com/oauth/authorize
+    flow: implicit
+    scopes:
+      admin: ' Grants read and write access to administrative information'
+      write: ' Grants write access'
+    type: oauth2
+  OAuth2Password:
+    authorizationUrl: ""
+    flow: password
+    scopes:
+      admin: ' Grants read and write access to administrative information'
+      read: ' Grants read access'
+      write: ' Grants write access'
+    tokenUrl: https://example.com/oauth/token
+    type: oauth2
+swagger: "2.0"
