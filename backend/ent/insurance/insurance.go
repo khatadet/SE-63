@@ -21,7 +21,7 @@ const (
 	// It exists in this package in order to avoid circular dependency with the "patientrights" package.
 	InsurancePatientrightsInverseTable = "patientrights"
 	// InsurancePatientrightsColumn is the table column denoting the InsurancePatientrights relation/edge.
-	InsurancePatientrightsColumn = "InsurancePatientrights_id"
+	InsurancePatientrightsColumn = "Insurance_id"
 )
 
 // Columns holds all SQL columns for insurance fields.

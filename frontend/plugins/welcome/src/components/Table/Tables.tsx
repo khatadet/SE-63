@@ -62,10 +62,11 @@ export default function ComponentsTable() {
        <TableHead>
          <TableRow>
            <TableCell align="center">No.</TableCell>
-           <TableCell align="center">ชื่อผู้พักอาศัย</TableCell>
-           <TableCell align="center">เลขห้อง</TableCell>
-           <TableCell align="center">ระยะเวลาในสัญญา</TableCell>
-           <TableCell align="center">วันทำสัญญา(ปี-เดือน-วัน)</TableCell>
+           <TableCell align="center">ชื่อ ประกัน</TableCell>
+           <TableCell align="center">Medicalrecordstaff</TableCell>
+           <TableCell align="center">Patientrightstype</TableCell>
+           <TableCell align="center">ความสามารถสิทธิ์</TableCell>
+           <TableCell align="center">วันที่สร้าง(ปี-เดือน-วัน)</TableCell>
            <TableCell align="center">Manage</TableCell>
            
          </TableRow>
@@ -76,11 +77,12 @@ export default function ComponentsTable() {
           : Patientrightss.map((item :any)=> (
            <TableRow>
              <TableCell align="center">{item.id}</TableCell>
-             <TableCell align="center">{item.id}</TableCell>
-             <TableCell align="center">{item.id}</TableCell>
+             <TableCell align="center">{item.edges.patientrightsInsurance.insurancecompany}</TableCell>
+             <TableCell align="center">{item.edges.patientrightsMedicalrecordstaff.id}</TableCell>
              
-             <TableCell align="center">{item.id} {item.id}</TableCell>
-             <TableCell align="center">{item.id}</TableCell>
+             <TableCell align="center">{item.edges.patientrightsPatientrightstype.permission}</TableCell>
+             <TableCell align="center">{item.edges.patientrightsPatientrecord.name}</TableCell>
+             <TableCell align="center">{item.permissionDate}</TableCell>
              <TableCell align="center">
                <Button
                  onClick={() => {

@@ -24,12 +24,6 @@ export interface ControllersPatientrights {
      * @type {number}
      * @memberof ControllersPatientrights
      */
-    abilitypatientrights?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof ControllersPatientrights
-     */
     insurance?: number;
     /**
      * 
@@ -44,17 +38,11 @@ export interface ControllersPatientrights {
      */
     patientrecord?: number;
     /**
-     * 
+     * Abilitypatientrights int
      * @type {number}
      * @memberof ControllersPatientrights
      */
     patientrightstype?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof ControllersPatientrights
-     */
-    permissionDate?: string;
 }
 
 export function ControllersPatientrightsFromJSON(json: any): ControllersPatientrights {
@@ -67,12 +55,10 @@ export function ControllersPatientrightsFromJSONTyped(json: any, ignoreDiscrimin
     }
     return {
         
-        'abilitypatientrights': !exists(json, 'abilitypatientrights') ? undefined : json['abilitypatientrights'],
         'insurance': !exists(json, 'insurance') ? undefined : json['insurance'],
         'medicalrecordstaff': !exists(json, 'medicalrecordstaff') ? undefined : json['medicalrecordstaff'],
         'patientrecord': !exists(json, 'patientrecord') ? undefined : json['patientrecord'],
         'patientrightstype': !exists(json, 'patientrightstype') ? undefined : json['patientrightstype'],
-        'permissionDate': !exists(json, 'permissionDate') ? undefined : json['permissionDate'],
     };
 }
 
@@ -85,12 +71,10 @@ export function ControllersPatientrightsToJSON(value?: ControllersPatientrights 
     }
     return {
         
-        'abilitypatientrights': value.abilitypatientrights,
         'insurance': value.insurance,
         'medicalrecordstaff': value.medicalrecordstaff,
         'patientrecord': value.patientrecord,
         'patientrightstype': value.patientrightstype,
-        'permissionDate': value.permissionDate,
     };
 }
 

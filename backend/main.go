@@ -4,6 +4,8 @@ import (
    "context"
    "fmt"
    "log"
+   "time"
+  
  
    "github.com/PON/app/controllers"
    _ "github.com/PON/app/docs"
@@ -15,6 +17,12 @@ import (
    ginSwagger "github.com/swaggo/gin-swagger"
 
    "github.com/PON/app/ent/abilitypatientrights"
+
+
+   "github.com/PON/app/ent/insurance"
+	"github.com/PON/app/ent/patientrecord"
+	"github.com/PON/app/ent/patientrightstype"
+	"github.com/PON/app/ent/medicalrecordstaff"
 
 
 )
@@ -48,6 +56,19 @@ type Abilitypatientrights struct {
     Examine         string
 }
 
+// Patientrightss defines the struct for the Patientrightss
+type Patientrightss struct {
+	Patientrights []Patientrights
+}
+
+// Patientrights defines the struct for the Patientrights
+type Patientrights struct {
+	
+	Patientrightstype    int
+	Patientrecord        int
+	Insurance            int
+	Medicalrecordstaff   int
+}
 
 
 
@@ -117,12 +138,13 @@ func main() {
    controllers.NewAbilitypatientrightsController(v1, client)
    controllers.NewMedicalrecordstaffController(v1, client)
    controllers.NewInsuranceController(v1, client)
+   controllers.NewPatientrecordController(v1, client)
 
    //-------------------------------------------------------------------
 
    // Set medicalrecordstaff Data
-   	patientrecord := []string{"Khatadet khianchainat","nara haru","morani rode","faratell yova","pulla visan","omaha yad",}
-	for _, r := range patientrecord {
+   	Patientrecord := []string{"Khatadet khianchainat","nara haru","morani rode","faratell yova","pulla visan","omaha yad",}
+	for _, r := range Patientrecord {
 		client.Patientrecord.
 			Create().
 			SetName(r).
@@ -139,8 +161,8 @@ func main() {
 	}
 
     // Set insurance Data
-	insurance := []string{"เมืองไทยประกันภัย", "ไทยสมุทรประกันชีวิต", "อื่นๆ", "กรมบัญชีกลาง", "AIA"}
-	for _, r := range insurance {
+	Insurance := []string{"เมืองไทยประกันภัย", "ไทยสมุทรประกันชีวิต", "อื่นๆ", "กรมบัญชีกลาง", "AIA"}
+	for _, r := range Insurance {
 		client.Insurance.
 			Create().
 			SetInsurancecompany(r).
@@ -195,9 +217,75 @@ func main() {
 		SetResponsible(p.Responsible).
 		SetPatientrightstypeAbilitypatientrights(a).
 		Save(context.Background())
-    }
-    
-    
+	}
+	//***********************************************************************************
+	// Set Patientrightstypes Data
+	patientrightss := Patientrightss{
+		Patientrights : []Patientrights{
+			Patientrights{1,1,1,1},
+			Patientrights{1,1,1,1},
+			Patientrights{1,1,1,1},
+			Patientrights{1,1,1,1},
+		},
+	}
+
+	for _, p := range patientrightss.Patientrights {
+
+		
+	Patientrightstype, err := client.Patientrightstype.
+		Query().
+		Where(patientrightstype.IDEQ(int(p.Patientrightstype))).
+		Only(context.Background())
+
+		if err != nil {
+			fmt.Println(err.Error())
+			return
+		}
+
+		Insurance, err := client.Insurance.
+		Query().
+		Where(insurance.IDEQ(int(p.Insurance))).
+		Only(context.Background())
+
+		if err != nil {
+			fmt.Println(err.Error())
+			return
+		}
+
+	Patientrecord, err := client.Patientrecord.
+		Query().
+		Where(patientrecord.IDEQ(int(p.Patientrecord))).
+		Only(context.Background())
+
+		if err != nil {
+			fmt.Println(err.Error())
+			return
+		}
+
+	Medicalrecordstaff, err := client.Medicalrecordstaff.
+		Query().
+		Where(medicalrecordstaff.IDEQ(int(p.Medicalrecordstaff))).
+		Only(context.Background())
+
+		if err != nil {
+			fmt.Println(err.Error())
+			return
+		}
+
+	
+	t := time.Now().Local()
+	client.Patientrights.
+		Create().
+		SetPermissionDate(t).
+		SetPatientrightsPatientrightstype(Patientrightstype).
+		SetPatientrightsPatientrecord(Patientrecord).
+		SetPatientrightsMedicalrecordstaff(Medicalrecordstaff).
+		SetPatientrightsInsurance(Insurance).
+		Save(context.Background())
+
+	
+	}
+    //***********************************************************************
    //-------------------------------------------------------------------
 
    router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))

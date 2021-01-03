@@ -1,5 +1,5 @@
 package schema
-
+//เป็น OUTPUT หลักของ B6103866
 import (
     
     "github.com/facebookincubator/ent"
@@ -15,7 +15,7 @@ type Patientrights struct {
 // Fields of the Patientrights.
 func (Patientrights) Fields() []ent.Field {
 	return []ent.Field{
-		field.String("PermissionDate"),
+		field.Time("PermissionDate"),//เวลาที่สร้างสิทธิ์
 		
 			
     }
@@ -28,6 +28,7 @@ func (Patientrights) Edges() []ent.Edge {
 		edge.From("PatientrightsPatientrightstype", Patientrightstype.Type).
 			Ref("PatientrightstypePatientrights").
 			Unique(),
+			//รูปแบบสิทธิ์
 
 		/*
 		edge.To("Patientrights___", ___.Type).StorageKey(edge.Column("Patientrights_id")),
@@ -37,14 +38,17 @@ func (Patientrights) Edges() []ent.Edge {
 		edge.From("PatientrightsInsurance", Insurance.Type).
 			Ref("InsurancePatientrights").
 			Unique(),
+			//ผู้จ่ายเงิน
 
 		edge.From("PatientrightsPatientrecord", Patientrecord.Type).
 			Ref("PatientrecordPatientrights").
 			Unique(),
+			//ผู้ป่วย ผู้รับสิทธิ์
 
 		edge.From("PatientrightsMedicalrecordstaff", Medicalrecordstaff.Type).
 			Ref("MedicalrecordstaffPatientrights").
 			Unique(),
+			//พนักงานผู้กรอกข้อมูล
 
 	}
 }

@@ -1,5 +1,5 @@
 package schema
-
+//เป็นส่วนประกอบของ Patientrightstype เพื่อบอกว่าสิทธิ์แบบใดมีคุณสมบัติใดบ้าง
 import (
     
     "github.com/facebookincubator/ent"
@@ -15,9 +15,9 @@ type Abilitypatientrights struct {
 // Fields of the Abilitypatientrights.
 func (Abilitypatientrights) Fields() []ent.Field {
 	return []ent.Field{
-		field.String("Operative"),
-		field.String("MedicalSupplies"),
-		field.String("Examine"),
+		field.String("Operative"),//หัตถการ
+		field.String("MedicalSupplies"),//เวชภัณฑ์
+		field.String("Examine"),//ตรวจสุขภาพ และ ค่า แลป
 			
     }
 }
@@ -26,6 +26,6 @@ func (Abilitypatientrights) Fields() []ent.Field {
 func (Abilitypatientrights) Edges() []ent.Edge {
 	return []ent.Edge{
 		
-		edge.To("AbilitypatientrightsPatientrightstype", Patientrightstype.Type).StorageKey(edge.Column("Abilitypatientrights_id")),
+		edge.To("AbilitypatientrightsPatientrightstype", Patientrightstype.Type).StorageKey(edge.Column("Abilitypatientrights_id")),//เป็นส่วนประกอบของ Patientrightstype
     }
 }

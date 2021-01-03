@@ -371,13 +371,13 @@ func (iq *InsuranceQuery) sqlAll(ctx context.Context) ([]*Insurance, error) {
 			return nil, err
 		}
 		for _, n := range neighbors {
-			fk := n.InsurancePatientrights_id
+			fk := n.Insurance_id
 			if fk == nil {
-				return nil, fmt.Errorf(`foreign-key "InsurancePatientrights_id" is nil for node %v`, n.ID)
+				return nil, fmt.Errorf(`foreign-key "Insurance_id" is nil for node %v`, n.ID)
 			}
 			node, ok := nodeids[*fk]
 			if !ok {
-				return nil, fmt.Errorf(`unexpected foreign-key "InsurancePatientrights_id" returned %v for node %v`, *fk, n.ID)
+				return nil, fmt.Errorf(`unexpected foreign-key "Insurance_id" returned %v for node %v`, *fk, n.ID)
 			}
 			node.Edges.InsurancePatientrights = append(node.Edges.InsurancePatientrights, n)
 		}

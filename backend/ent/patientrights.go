@@ -5,6 +5,7 @@ package ent
 import (
 	"fmt"
 	"strings"
+	"time"
 
 	"github.com/PON/app/ent/insurance"
 	"github.com/PON/app/ent/medicalrecordstaff"
@@ -20,14 +21,14 @@ type Patientrights struct {
 	// ID of the ent.
 	ID int `json:"id,omitempty"`
 	// PermissionDate holds the value of the "PermissionDate" field.
-	PermissionDate string `json:"PermissionDate,omitempty"`
+	PermissionDate time.Time `json:"PermissionDate,omitempty"`
 	// Edges holds the relations/edges for other nodes in the graph.
 	// The values are being populated by the PatientrightsQuery when eager-loading is set.
-	Edges                     PatientrightsEdges `json:"edges"`
-	InsurancePatientrights_id *int
-	Medicalrecordstaff_id     *int
-	Patientrecord_id          *int
-	Patientrightstype_id      *int
+	Edges                 PatientrightsEdges `json:"edges"`
+	Insurance_id          *int
+	Medicalrecordstaff_id *int
+	Patientrecord_id      *int
+	Patientrightstype_id  *int
 }
 
 // PatientrightsEdges holds the relations/edges for other nodes in the graph.
@@ -104,15 +105,15 @@ func (e PatientrightsEdges) PatientrightsMedicalrecordstaffOrErr() (*Medicalreco
 // scanValues returns the types for scanning values from sql.Rows.
 func (*Patientrights) scanValues() []interface{} {
 	return []interface{}{
-		&sql.NullInt64{},  // id
-		&sql.NullString{}, // PermissionDate
+		&sql.NullInt64{}, // id
+		&sql.NullTime{},  // PermissionDate
 	}
 }
 
 // fkValues returns the types for scanning foreign-keys values from sql.Rows.
 func (*Patientrights) fkValues() []interface{} {
 	return []interface{}{
-		&sql.NullInt64{}, // InsurancePatientrights_id
+		&sql.NullInt64{}, // Insurance_id
 		&sql.NullInt64{}, // Medicalrecordstaff_id
 		&sql.NullInt64{}, // Patientrecord_id
 		&sql.NullInt64{}, // Patientrightstype_id
@@ -131,18 +132,18 @@ func (pa *Patientrights) assignValues(values ...interface{}) error {
 	}
 	pa.ID = int(value.Int64)
 	values = values[1:]
-	if value, ok := values[0].(*sql.NullString); !ok {
+	if value, ok := values[0].(*sql.NullTime); !ok {
 		return fmt.Errorf("unexpected type %T for field PermissionDate", values[0])
 	} else if value.Valid {
-		pa.PermissionDate = value.String
+		pa.PermissionDate = value.Time
 	}
 	values = values[1:]
 	if len(values) == len(patientrights.ForeignKeys) {
 		if value, ok := values[0].(*sql.NullInt64); !ok {
-			return fmt.Errorf("unexpected type %T for edge-field InsurancePatientrights_id", value)
+			return fmt.Errorf("unexpected type %T for edge-field Insurance_id", value)
 		} else if value.Valid {
-			pa.InsurancePatientrights_id = new(int)
-			*pa.InsurancePatientrights_id = int(value.Int64)
+			pa.Insurance_id = new(int)
+			*pa.Insurance_id = int(value.Int64)
 		}
 		if value, ok := values[1].(*sql.NullInt64); !ok {
 			return fmt.Errorf("unexpected type %T for edge-field Medicalrecordstaff_id", value)
@@ -210,7 +211,7 @@ func (pa *Patientrights) String() string {
 	builder.WriteString("Patientrights(")
 	builder.WriteString(fmt.Sprintf("id=%v", pa.ID))
 	builder.WriteString(", PermissionDate=")
-	builder.WriteString(pa.PermissionDate)
+	builder.WriteString(pa.PermissionDate.Format(time.ANSIC))
 	builder.WriteByte(')')
 	return builder.String()
 }

@@ -3,6 +3,8 @@
 package patientrights
 
 import (
+	"time"
+
 	"github.com/PON/app/ent/predicate"
 	"github.com/facebookincubator/ent/dialect/sql"
 	"github.com/facebookincubator/ent/dialect/sql/sqlgraph"
@@ -92,28 +94,28 @@ func IDLTE(id int) predicate.Patientrights {
 }
 
 // PermissionDate applies equality check predicate on the "PermissionDate" field. It's identical to PermissionDateEQ.
-func PermissionDate(v string) predicate.Patientrights {
+func PermissionDate(v time.Time) predicate.Patientrights {
 	return predicate.Patientrights(func(s *sql.Selector) {
 		s.Where(sql.EQ(s.C(FieldPermissionDate), v))
 	})
 }
 
 // PermissionDateEQ applies the EQ predicate on the "PermissionDate" field.
-func PermissionDateEQ(v string) predicate.Patientrights {
+func PermissionDateEQ(v time.Time) predicate.Patientrights {
 	return predicate.Patientrights(func(s *sql.Selector) {
 		s.Where(sql.EQ(s.C(FieldPermissionDate), v))
 	})
 }
 
 // PermissionDateNEQ applies the NEQ predicate on the "PermissionDate" field.
-func PermissionDateNEQ(v string) predicate.Patientrights {
+func PermissionDateNEQ(v time.Time) predicate.Patientrights {
 	return predicate.Patientrights(func(s *sql.Selector) {
 		s.Where(sql.NEQ(s.C(FieldPermissionDate), v))
 	})
 }
 
 // PermissionDateIn applies the In predicate on the "PermissionDate" field.
-func PermissionDateIn(vs ...string) predicate.Patientrights {
+func PermissionDateIn(vs ...time.Time) predicate.Patientrights {
 	v := make([]interface{}, len(vs))
 	for i := range v {
 		v[i] = vs[i]
@@ -130,7 +132,7 @@ func PermissionDateIn(vs ...string) predicate.Patientrights {
 }
 
 // PermissionDateNotIn applies the NotIn predicate on the "PermissionDate" field.
-func PermissionDateNotIn(vs ...string) predicate.Patientrights {
+func PermissionDateNotIn(vs ...time.Time) predicate.Patientrights {
 	v := make([]interface{}, len(vs))
 	for i := range v {
 		v[i] = vs[i]
@@ -147,65 +149,30 @@ func PermissionDateNotIn(vs ...string) predicate.Patientrights {
 }
 
 // PermissionDateGT applies the GT predicate on the "PermissionDate" field.
-func PermissionDateGT(v string) predicate.Patientrights {
+func PermissionDateGT(v time.Time) predicate.Patientrights {
 	return predicate.Patientrights(func(s *sql.Selector) {
 		s.Where(sql.GT(s.C(FieldPermissionDate), v))
 	})
 }
 
 // PermissionDateGTE applies the GTE predicate on the "PermissionDate" field.
-func PermissionDateGTE(v string) predicate.Patientrights {
+func PermissionDateGTE(v time.Time) predicate.Patientrights {
 	return predicate.Patientrights(func(s *sql.Selector) {
 		s.Where(sql.GTE(s.C(FieldPermissionDate), v))
 	})
 }
 
 // PermissionDateLT applies the LT predicate on the "PermissionDate" field.
-func PermissionDateLT(v string) predicate.Patientrights {
+func PermissionDateLT(v time.Time) predicate.Patientrights {
 	return predicate.Patientrights(func(s *sql.Selector) {
 		s.Where(sql.LT(s.C(FieldPermissionDate), v))
 	})
 }
 
 // PermissionDateLTE applies the LTE predicate on the "PermissionDate" field.
-func PermissionDateLTE(v string) predicate.Patientrights {
+func PermissionDateLTE(v time.Time) predicate.Patientrights {
 	return predicate.Patientrights(func(s *sql.Selector) {
 		s.Where(sql.LTE(s.C(FieldPermissionDate), v))
-	})
-}
-
-// PermissionDateContains applies the Contains predicate on the "PermissionDate" field.
-func PermissionDateContains(v string) predicate.Patientrights {
-	return predicate.Patientrights(func(s *sql.Selector) {
-		s.Where(sql.Contains(s.C(FieldPermissionDate), v))
-	})
-}
-
-// PermissionDateHasPrefix applies the HasPrefix predicate on the "PermissionDate" field.
-func PermissionDateHasPrefix(v string) predicate.Patientrights {
-	return predicate.Patientrights(func(s *sql.Selector) {
-		s.Where(sql.HasPrefix(s.C(FieldPermissionDate), v))
-	})
-}
-
-// PermissionDateHasSuffix applies the HasSuffix predicate on the "PermissionDate" field.
-func PermissionDateHasSuffix(v string) predicate.Patientrights {
-	return predicate.Patientrights(func(s *sql.Selector) {
-		s.Where(sql.HasSuffix(s.C(FieldPermissionDate), v))
-	})
-}
-
-// PermissionDateEqualFold applies the EqualFold predicate on the "PermissionDate" field.
-func PermissionDateEqualFold(v string) predicate.Patientrights {
-	return predicate.Patientrights(func(s *sql.Selector) {
-		s.Where(sql.EqualFold(s.C(FieldPermissionDate), v))
-	})
-}
-
-// PermissionDateContainsFold applies the ContainsFold predicate on the "PermissionDate" field.
-func PermissionDateContainsFold(v string) predicate.Patientrights {
-	return predicate.Patientrights(func(s *sql.Selector) {
-		s.Where(sql.ContainsFold(s.C(FieldPermissionDate), v))
 	})
 }
 

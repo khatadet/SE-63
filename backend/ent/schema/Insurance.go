@@ -1,5 +1,5 @@
 package schema
-
+//เป็นส่วนประกอบของ OUTPUT หลัก
 import (
     
     "github.com/facebookincubator/ent"
@@ -17,7 +17,7 @@ func (Insurance) Fields() []ent.Field {
 	return []ent.Field{
 
 
-		field.String("Insurancecompany").Unique(),
+		field.String("Insurancecompany").Unique(),//ชื่อบริษัท ที่รับผิดชอบ
 		
 
     }
@@ -26,7 +26,7 @@ func (Insurance) Fields() []ent.Field {
 // Edges of the INSURANCE.
 func (Insurance) Edges() []ent.Edge {
 	return []ent.Edge{
-		edge.To("InsurancePatientrights", Patientrights.Type).StorageKey(edge.Column("InsurancePatientrights_id")),
+		edge.To("InsurancePatientrights", Patientrights.Type).StorageKey(edge.Column("Insurance_id")),//เป็นส่วนประกอบของ OUTPUT หลัก เพื่อบอกว่าใครจะแป็นคนออกค้าใช้จ่าย
 	
     }
 }

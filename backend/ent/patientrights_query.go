@@ -363,7 +363,7 @@ func (pq *PatientrightsQuery) WithPatientrightsMedicalrecordstaff(opts ...func(*
 // Example:
 //
 //	var v []struct {
-//		PermissionDate string `json:"PermissionDate,omitempty"`
+//		PermissionDate time.Time `json:"PermissionDate,omitempty"`
 //		Count int `json:"count,omitempty"`
 //	}
 //
@@ -389,7 +389,7 @@ func (pq *PatientrightsQuery) GroupBy(field string, fields ...string) *Patientri
 // Example:
 //
 //	var v []struct {
-//		PermissionDate string `json:"PermissionDate,omitempty"`
+//		PermissionDate time.Time `json:"PermissionDate,omitempty"`
 //	}
 //
 //	client.Patientrights.Query().
@@ -490,7 +490,7 @@ func (pq *PatientrightsQuery) sqlAll(ctx context.Context) ([]*Patientrights, err
 		ids := make([]int, 0, len(nodes))
 		nodeids := make(map[int][]*Patientrights)
 		for i := range nodes {
-			if fk := nodes[i].InsurancePatientrights_id; fk != nil {
+			if fk := nodes[i].Insurance_id; fk != nil {
 				ids = append(ids, *fk)
 				nodeids[*fk] = append(nodeids[*fk], nodes[i])
 			}
@@ -503,7 +503,7 @@ func (pq *PatientrightsQuery) sqlAll(ctx context.Context) ([]*Patientrights, err
 		for _, n := range neighbors {
 			nodes, ok := nodeids[n.ID]
 			if !ok {
-				return nil, fmt.Errorf(`unexpected foreign-key "InsurancePatientrights_id" returned %v`, n.ID)
+				return nil, fmt.Errorf(`unexpected foreign-key "Insurance_id" returned %v`, n.ID)
 			}
 			for i := range nodes {
 				nodes[i].Edges.PatientrightsInsurance = n

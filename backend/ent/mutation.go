@@ -6,6 +6,7 @@ import (
 	"context"
 	"fmt"
 	"sync"
+	"time"
 
 	"github.com/PON/app/ent/abilitypatientrights"
 	"github.com/PON/app/ent/insurance"
@@ -1560,7 +1561,7 @@ type PatientrightsMutation struct {
 	op                                      Op
 	typ                                     string
 	id                                      *int
-	_PermissionDate                         *string
+	_PermissionDate                         *time.Time
 	clearedFields                           map[string]struct{}
 	_PatientrightsPatientrightstype         *int
 	cleared_PatientrightsPatientrightstype  bool
@@ -1654,12 +1655,12 @@ func (m *PatientrightsMutation) ID() (id int, exists bool) {
 }
 
 // SetPermissionDate sets the PermissionDate field.
-func (m *PatientrightsMutation) SetPermissionDate(s string) {
-	m._PermissionDate = &s
+func (m *PatientrightsMutation) SetPermissionDate(t time.Time) {
+	m._PermissionDate = &t
 }
 
 // PermissionDate returns the PermissionDate value in the mutation.
-func (m *PatientrightsMutation) PermissionDate() (r string, exists bool) {
+func (m *PatientrightsMutation) PermissionDate() (r time.Time, exists bool) {
 	v := m._PermissionDate
 	if v == nil {
 		return
@@ -1671,7 +1672,7 @@ func (m *PatientrightsMutation) PermissionDate() (r string, exists bool) {
 // If the Patientrights object wasn't provided to the builder, the object is fetched
 // from the database.
 // An error is returned if the mutation operation is not UpdateOne, or database query fails.
-func (m *PatientrightsMutation) OldPermissionDate(ctx context.Context) (v string, err error) {
+func (m *PatientrightsMutation) OldPermissionDate(ctx context.Context) (v time.Time, err error) {
 	if !m.op.Is(OpUpdateOne) {
 		return v, fmt.Errorf("OldPermissionDate is allowed only on UpdateOne operations")
 	}
@@ -1895,7 +1896,7 @@ func (m *PatientrightsMutation) OldField(ctx context.Context, name string) (ent.
 func (m *PatientrightsMutation) SetField(name string, value ent.Value) error {
 	switch name {
 	case patientrights.FieldPermissionDate:
-		v, ok := value.(string)
+		v, ok := value.(time.Time)
 		if !ok {
 			return fmt.Errorf("unexpected type %T for field %s", value, name)
 		}

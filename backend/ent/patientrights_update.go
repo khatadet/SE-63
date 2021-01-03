@@ -5,6 +5,7 @@ package ent
 import (
 	"context"
 	"fmt"
+	"time"
 
 	"github.com/PON/app/ent/insurance"
 	"github.com/PON/app/ent/medicalrecordstaff"
@@ -32,8 +33,8 @@ func (pu *PatientrightsUpdate) Where(ps ...predicate.Patientrights) *Patientrigh
 }
 
 // SetPermissionDate sets the PermissionDate field.
-func (pu *PatientrightsUpdate) SetPermissionDate(s string) *PatientrightsUpdate {
-	pu.mutation.SetPermissionDate(s)
+func (pu *PatientrightsUpdate) SetPermissionDate(t time.Time) *PatientrightsUpdate {
+	pu.mutation.SetPermissionDate(t)
 	return pu
 }
 
@@ -214,7 +215,7 @@ func (pu *PatientrightsUpdate) sqlSave(ctx context.Context) (n int, err error) {
 	}
 	if value, ok := pu.mutation.PermissionDate(); ok {
 		_spec.Fields.Set = append(_spec.Fields.Set, &sqlgraph.FieldSpec{
-			Type:   field.TypeString,
+			Type:   field.TypeTime,
 			Value:  value,
 			Column: patientrights.FieldPermissionDate,
 		})
@@ -378,8 +379,8 @@ type PatientrightsUpdateOne struct {
 }
 
 // SetPermissionDate sets the PermissionDate field.
-func (puo *PatientrightsUpdateOne) SetPermissionDate(s string) *PatientrightsUpdateOne {
-	puo.mutation.SetPermissionDate(s)
+func (puo *PatientrightsUpdateOne) SetPermissionDate(t time.Time) *PatientrightsUpdateOne {
+	puo.mutation.SetPermissionDate(t)
 	return puo
 }
 
@@ -558,7 +559,7 @@ func (puo *PatientrightsUpdateOne) sqlSave(ctx context.Context) (pa *Patientrigh
 	_spec.Node.ID.Value = id
 	if value, ok := puo.mutation.PermissionDate(); ok {
 		_spec.Fields.Set = append(_spec.Fields.Set, &sqlgraph.FieldSpec{
-			Type:   field.TypeString,
+			Type:   field.TypeTime,
 			Value:  value,
 			Column: patientrights.FieldPermissionDate,
 		})

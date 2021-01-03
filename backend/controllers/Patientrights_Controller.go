@@ -4,9 +4,10 @@ import (
 	"context"
 	"fmt"
 	"strconv"
+	"time"
 
 	"github.com/PON/app/ent"
-	"github.com/PON/app/ent/medicalrecordstaff"
+	
 	"github.com/PON/app/ent/patientrights"
 
 	"github.com/gin-gonic/gin"
@@ -14,6 +15,7 @@ import (
 	"github.com/PON/app/ent/insurance"
 	"github.com/PON/app/ent/patientrecord"
 	"github.com/PON/app/ent/patientrightstype"
+	"github.com/PON/app/ent/medicalrecordstaff"
 )
 
 // PatientrightsController defines the struct for the Patientrights controller
@@ -24,9 +26,9 @@ type PatientrightsController struct {
 
 // Patientrights defines the struct for the Patientrights
 type Patientrights struct {
-	PermissionDate string
+	//PermissionDate string
 
-	Abilitypatientrights int
+	//Abilitypatientrights int
 	Patientrightstype    int
 	Patientrecord        int
 	Insurance            int
@@ -100,10 +102,10 @@ func (ctl *PatientrightsController) CreatePatientrights(c *gin.Context) {
 		})
 		return
 	}
-
+	t := time.Now().Local()
 	u, err := ctl.client.Patientrights.
 		Create().
-		SetPermissionDate(obj.PermissionDate).
+		SetPermissionDate(t).
 		SetPatientrightsPatientrightstype(Patientrightstype).
 		SetPatientrightsPatientrecord(Patientrecord).
 		SetPatientrightsMedicalrecordstaff(Medicalrecordstaff).
@@ -142,6 +144,10 @@ func (ctl *PatientrightsController) GetPatientrights(c *gin.Context) {
 
 	u, err := ctl.client.Patientrights.
 		Query().
+		WithPatientrightsInsurance().
+		WithPatientrightsPatientrightstype().
+		WithPatientrightsPatientrecord().
+		WithPatientrightsMedicalrecordstaff().
 		Where(patientrights.IDEQ(int(id))).
 		Only(context.Background())
 	if err != nil {
@@ -222,6 +228,8 @@ func (ctl *PatientrightsController) ListPatientrights(c *gin.Context) {
 		WithPatientrightsInsurance().
 		WithPatientrightsPatientrightstype().
 		WithPatientrightsPatientrecord().
+		WithPatientrightsMedicalrecordstaff().
+		
 		Limit(limit).
 		Offset(offset).
 		All(context.Background())
@@ -232,6 +240,49 @@ func (ctl *PatientrightsController) ListPatientrights(c *gin.Context) {
 
 	c.JSON(200, patientrightss)
 }
+
+
+// UpdatePatientrights handles PUT requests to update a patientrights entity
+// @Summary Update a patientrights entity by ID
+// @Description update patientrights by ID
+// @ID update-patientrights
+// @Accept   json
+// @Produce  json
+// @Param id path int true "Patientrights ID"
+// @Param patientrights body ent.Patientrights true "Patientrights entity"
+// @Success 200 {object} ent.Patientrights
+// @Failure 400 {object} gin.H
+// @Failure 500 {object} gin.H
+// @Router /patientrightss/{id} [put]
+func (ctl *PatientrightsController) UpdatePatientrights(c *gin.Context) {
+	id, err := strconv.ParseInt(c.Param("id"), 10, 64)
+	if err != nil {
+		c.JSON(400, gin.H{
+			"error": err.Error(),
+		})
+		return
+	}
+  
+	obj := ent.Patientrights{}
+	if err := c.ShouldBind(&obj); err != nil {
+		c.JSON(400, gin.H{
+			"error": "patientrights binding failed",
+		})
+		return
+	}
+	obj.ID = int(id)
+	u, err := ctl.client.Patientrights.
+		UpdateOne(&obj).
+		Save(context.Background())
+	if err != nil {
+		c.JSON(400, gin.H{"error": "update failed",})
+		return
+	}
+  
+	c.JSON(200, u)
+ }
+
+
 
 // NewPatientrightsController creates and registers handles for the patientrights controller
 func NewPatientrightsController(router gin.IRouter, client *ent.Client) *PatientrightsController {
@@ -252,6 +303,6 @@ func (ctl *PatientrightsController) register() {
 	// CRUD
 	patientrightss.POST("", ctl.CreatePatientrights)
 	patientrightss.GET(":id", ctl.GetPatientrights)
-	//patientrightss.PUT(":id", ctl.UpdatePatientrights)
+	patientrightss.PUT(":id", ctl.UpdatePatientrights)
 	patientrightss.DELETE(":id", ctl.DeletePatientrights)
 }

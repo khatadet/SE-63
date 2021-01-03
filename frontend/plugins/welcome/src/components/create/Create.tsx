@@ -16,7 +16,7 @@ import {
 import Timer from '../Timer';
 import { DefaultApi } from '../../api/apis'; // Api Gennerate From Command
 
-//import { ControllersPatientrights } from '../../api/models/ControllersPatientrights';
+import { EntPatientrecord } from '../../api/models/EntPatientrecord';
 import { EntPatientrightstype } from '../../api/models/EntPatientrightstype';
 import { EntInsurance } from '../../api/models/EntInsurance';
 import { EntMedicalrecordstaff } from '../../api/models/EntMedicalrecordstaff';
@@ -65,41 +65,29 @@ const useStyles = makeStyles(theme => ({
 
 interface Patientrights_Type {
   /**
-   * 
-   * @type {number}
-   * @memberof ControllersPatientrights
-   */
-  abilitypatientrights?: number;
-  /**
-   * 
-   * @type {number}
-   * @memberof ControllersPatientrights
-   */
-  insurance?: number;
-  /**
-   * 
-   * @type {number}
-   * @memberof ControllersPatientrights
-   */
-  patientrecord?: number;
-  /**
-   * 
-   * @type {number}
-   * @memberof ControllersPatientrights
-   */
-  patientrightstype?: number;
-  /**
-   * 
-   * @type {string}
-   * @memberof ControllersPatientrights
-   */
-  permissionDate?: string;
-  /**
-   * 
-   * @type {number}
-   * @memberof ControllersPatientrights
-   */
-  user?: number;
+     * 
+     * @type {number}
+     * @memberof ControllersPatientrights
+     */
+    insurance?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof ControllersPatientrights
+     */
+    medicalrecordstaff?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof ControllersPatientrights
+     */
+    patientrecord?: number;
+    /**
+     * Abilitypatientrights int
+     * @type {number}
+     * @memberof ControllersPatientrights
+     */
+    patientrightstype?: number;
 }
 
 const NewPatientright: FC<{}> = () => {
@@ -110,6 +98,7 @@ const NewPatientright: FC<{}> = () => {
   const [Patientrights, setPatientrights] =            React.useState<Partial<Patientrights_Type>>({});
 
   const [Patientrightstype, setPatientrightstype] =     React.useState<EntPatientrightstype[]>([]);
+  const [Patientrecord, setPatientrecord] =     React.useState<EntPatientrecord[]>([]);
  
  const [Insurance, setInsurance] =  React.useState<EntInsurance[]>([]);
  const [Medicalrecordstaff, setMedicalrecordstaff] =            React.useState<EntMedicalrecordstaff[]>([]);
@@ -127,6 +116,11 @@ const NewPatientright: FC<{}> = () => {
     setPatientrightstype(res);
   };
 
+  const getPatientrecord = async () => {
+    const res = await http.listPatientrecord({ limit: 10, offset: 0 });
+    setPatientrecord(res);
+  };
+
   const getInsurance = async () => {
     const res = await http.listInsurance({ limit: 10, offset: 0 });
     setInsurance(res);
@@ -136,7 +130,7 @@ const NewPatientright: FC<{}> = () => {
   useEffect(() => {
     getMedicalrecordstaffs();
     getPatientrightstype();
-    //getRoom();
+    getPatientrecord();
     getInsurance();
   }, []);
 
@@ -161,6 +155,7 @@ const NewPatientright: FC<{}> = () => {
     
     
     });
+    console.log(Patientrights);
     setStatus(true);
   
     
@@ -186,13 +181,13 @@ const NewPatientright: FC<{}> = () => {
        subtitle="Some quick intro and links."
      ><Timer /></Header>
      <Content>
-       <ContentHeader title="เช่าห้องพักอาศัย">
+       <ContentHeader title="ข้อมูล">
          
          {status ? (
            <div>
              {alert ? (
                <Alert severity="success">
-                 สร้างสัญญาสำเร็จ
+                 บันทึกสำเร็จ
                </Alert>
              ) : (
                <Alert severity="warning" style={{ marginTop: 20 }}>
@@ -203,36 +198,11 @@ const NewPatientright: FC<{}> = () => {
          ) : null}
        </ContentHeader>
 
-        {/*
-       <div className={classes.root}>
-
-         
-         <form noValidate autoComplete="off">
-         
-         <FormControl variant="filled" className={classes.formControl}>
-          <TextField
-               name="rentDate"
-               label="PatientrightDate"
-               
-               type="date"
-               size="medium"
-               
-               value={Patientrights.rentDate}
-               onChange={handleChange}
-
-               InputLabelProps={{
-                shrink: true,
-              }}
-
-             />
-
-          </FormControl>
-            
-
-
-         </form>
-       </div>
-            */}
+       <div>
+              <br/><p>json {JSON.stringify(Patientrights)} </p>
+              
+              
+          </div>
 
             
        <div className={classes.root}>
@@ -242,31 +212,17 @@ const NewPatientright: FC<{}> = () => {
 
          
          
-         <FormControl variant="filled" className={classes.formControl}>
-          <TextField
-               name="rentAge"
-               label="ระยะเวลาสัญญา"
-               variant="outlined"
-               type="string"
-               size="medium"
-               
-               value={Patientrights.rentAge}
-               onChange={handleChange}
-             />
-
-          </FormControl>
-          
           <FormControl variant="outlined" className={classes.formControl}>
-                <InputLabel>หน่วยระยะเวลาสัญญา</InputLabel>
+                <InputLabel>Patientrecord</InputLabel>
                 <Select
-                  name="roomage"
-                  value={Patientrights.roomage}
+                  name="patientrecord"
+                  value={Patientrights.patientrecord}
                   onChange={handleChange}
                 >
-                  {Patientrights.map((item:any) => {
+                  {Patientrecord.map((item:any) => {
                     return (
                       <MenuItem key={item.id} value={item.id}>
-                        {item.text}
+                        {item.name}
                       </MenuItem>
                     );
                   })}
@@ -281,16 +237,16 @@ const NewPatientright: FC<{}> = () => {
          <form noValidate autoComplete="off">
 
          <FormControl variant="outlined" className={classes.formControl}>
-                <InputLabel>ห้อง</InputLabel>
+                <InputLabel>Insurance</InputLabel>
                 <Select
-                  name="room"
-                  value={Patientrights.room}
+                  name="insurance"
+                  value={Patientrights.insurance}
                   onChange={handleChange}
                 >
-                  {Room.map(item => {
+                  {Insurance.map(item => {
                     return (
                       <MenuItem key={item.id} value={item.id}>
-                        {item.roomName}
+                        {item.insurancecompany}
                       </MenuItem>
                     );
                   })}
@@ -301,21 +257,22 @@ const NewPatientright: FC<{}> = () => {
  
         
               <FormControl variant="outlined" className={classes.formControl}>
-                <InputLabel>ราคามัดจำ</InputLabel>
+                <InputLabel>Patientrightstype</InputLabel>
                 <Select
-                  name="insurance"
-                  value={Patientrights.insurance}
+                  name="patientrightstype"
+                  value={Patientrights.patientrightstype}
                   onChange={handleChange}
                 >
-                  {Insurance.map(item => {
+                  {Patientrightstype.map(item => {
                     return (
                       <MenuItem key={item.id} value={item.id}>
-                        {item.insurance}
+                        {item.permission}
                       </MenuItem>
                     );
                   })}
                 </Select>
               </FormControl>
+                
 
            </form>
        </div>
@@ -330,7 +287,7 @@ const NewPatientright: FC<{}> = () => {
 
 
 
-        <ContentHeader title="ข้อมูลผู้เช่า"/>
+        <ContentHeader title="พนักงาน"/>
          
 
 
@@ -340,10 +297,10 @@ const NewPatientright: FC<{}> = () => {
          <form noValidate autoComplete="off">
 
          <FormControl variant="outlined" className={classes.formControl}>
-                <InputLabel>เลือกพนักงาน</InputLabel>
+                <InputLabel>เลือกพนักงาน Medicalrecordstaff</InputLabel>
                 <Select
-                 name="user"
-                  value={Patientrights.user}
+                 name="medicalrecordstaff"
+                  value={Patientrights.medicalrecordstaff}
                   onChange={handleChange}
                 >
                   {Medicalrecordstaff.map(item => {

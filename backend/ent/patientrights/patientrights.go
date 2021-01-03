@@ -34,7 +34,7 @@ const (
 	// It exists in this package in order to avoid circular dependency with the "insurance" package.
 	PatientrightsInsuranceInverseTable = "insurances"
 	// PatientrightsInsuranceColumn is the table column denoting the PatientrightsInsurance relation/edge.
-	PatientrightsInsuranceColumn = "InsurancePatientrights_id"
+	PatientrightsInsuranceColumn = "Insurance_id"
 	// PatientrightsPatientrecordTable is the table the holds the PatientrightsPatientrecord relation/edge.
 	PatientrightsPatientrecordTable = "patientrights"
 	// PatientrightsPatientrecordInverseTable is the table name for the Patientrecord entity.
@@ -59,7 +59,7 @@ var Columns = []string{
 
 // ForeignKeys holds the SQL foreign-keys that are owned by the Patientrights type.
 var ForeignKeys = []string{
-	"InsurancePatientrights_id",
+	"Insurance_id",
 	"Medicalrecordstaff_id",
 	"Patientrecord_id",
 	"Patientrightstype_id",

@@ -74,10 +74,10 @@ export function EntPatientrightsEdgesFromJSONTyped(json: any, ignoreDiscriminato
     }
     return {
         
-        'patientrightsInsurance': !exists(json, 'patientrightsInsurance') ? undefined : EntInsuranceFromJSON(json['patientrightsInsurance']),
-        'patientrightsMedicalrecordstaff': !exists(json, 'patientrightsMedicalrecordstaff') ? undefined : EntMedicalrecordstaffFromJSON(json['patientrightsMedicalrecordstaff']),
-        'patientrightsPatientrecord': !exists(json, 'patientrightsPatientrecord') ? undefined : EntPatientrecordFromJSON(json['patientrightsPatientrecord']),
-        'patientrightsPatientrightstype': !exists(json, 'patientrightsPatientrightstype') ? undefined : EntPatientrightstypeFromJSON(json['patientrightsPatientrightstype']),
+        'patientrightsInsurance': !exists(json, 'PatientrightsInsurance') ? undefined : EntInsuranceFromJSON(json['PatientrightsInsurance']),
+        'patientrightsMedicalrecordstaff': !exists(json, 'PatientrightsMedicalrecordstaff') ? undefined : EntMedicalrecordstaffFromJSON(json['PatientrightsMedicalrecordstaff']),
+        'patientrightsPatientrecord': !exists(json, 'PatientrightsPatientrecord') ? undefined : EntPatientrecordFromJSON(json['PatientrightsPatientrecord']),
+        'patientrightsPatientrightstype': !exists(json, 'PatientrightsPatientrightstype') ? undefined : EntPatientrightstypeFromJSON(json['PatientrightsPatientrightstype']),
     };
 }
 

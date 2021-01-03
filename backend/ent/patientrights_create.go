@@ -6,6 +6,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"time"
 
 	"github.com/PON/app/ent/insurance"
 	"github.com/PON/app/ent/medicalrecordstaff"
@@ -24,8 +25,8 @@ type PatientrightsCreate struct {
 }
 
 // SetPermissionDate sets the PermissionDate field.
-func (pc *PatientrightsCreate) SetPermissionDate(s string) *PatientrightsCreate {
-	pc.mutation.SetPermissionDate(s)
+func (pc *PatientrightsCreate) SetPermissionDate(t time.Time) *PatientrightsCreate {
+	pc.mutation.SetPermissionDate(t)
 	return pc
 }
 
@@ -177,7 +178,7 @@ func (pc *PatientrightsCreate) createSpec() (*Patientrights, *sqlgraph.CreateSpe
 	)
 	if value, ok := pc.mutation.PermissionDate(); ok {
 		_spec.Fields = append(_spec.Fields, &sqlgraph.FieldSpec{
-			Type:   field.TypeString,
+			Type:   field.TypeTime,
 			Value:  value,
 			Column: patientrights.FieldPermissionDate,
 		})

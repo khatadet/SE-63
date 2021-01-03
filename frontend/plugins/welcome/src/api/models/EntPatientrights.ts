@@ -49,7 +49,7 @@ export interface EntPatientrights {
      * @type {number}
      * @memberof EntPatientrights
      */
-    insurancePatientrightsId?: number;
+    insuranceId?: number;
     /**
      * 
      * @type {number}
@@ -83,7 +83,7 @@ export function EntPatientrightsFromJSONTyped(json: any, ignoreDiscriminator: bo
         'permissionDate': !exists(json, 'PermissionDate') ? undefined : json['PermissionDate'],
         'edges': !exists(json, 'edges') ? undefined : EntPatientrightsEdgesFromJSON(json['edges']),
         'id': !exists(json, 'id') ? undefined : json['id'],
-        'insurancePatientrightsId': !exists(json, 'insurancePatientrights_id') ? undefined : json['insurancePatientrights_id'],
+        'insuranceId': !exists(json, 'insurance_id') ? undefined : json['insurance_id'],
         'medicalrecordstaffId': !exists(json, 'medicalrecordstaff_id') ? undefined : json['medicalrecordstaff_id'],
         'patientrecordId': !exists(json, 'patientrecord_id') ? undefined : json['patientrecord_id'],
         'patientrightstypeId': !exists(json, 'patientrightstype_id') ? undefined : json['patientrightstype_id'],
@@ -102,7 +102,7 @@ export function EntPatientrightsToJSON(value?: EntPatientrights | null): any {
         'PermissionDate': value.permissionDate,
         'edges': EntPatientrightsEdgesToJSON(value.edges),
         'id': value.id,
-        'insurancePatientrights_id': value.insurancePatientrightsId,
+        'insurance_id': value.insuranceId,
         'medicalrecordstaff_id': value.medicalrecordstaffId,
         'patientrecord_id': value.patientrecordId,
         'patientrightstype_id': value.patientrightstypeId,
