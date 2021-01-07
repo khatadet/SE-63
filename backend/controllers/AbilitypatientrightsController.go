@@ -215,3 +215,4 @@ func NewAbilitypatientrightsController(router gin.IRouter, client *ent.Client) *
 	abilitypatientrightss.DELETE(":id", ctl.DeleteAbilitypatientrights)
  }
    
+ 
