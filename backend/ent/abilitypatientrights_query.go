@@ -270,7 +270,7 @@ func (aq *AbilitypatientrightsQuery) WithAbilitypatientrightsPatientrightstype(o
 // Example:
 //
 //	var v []struct {
-//		Operative string `json:"Operative,omitempty"`
+//		Operative int `json:"Operative,omitempty"`
 //		Count int `json:"count,omitempty"`
 //	}
 //
@@ -296,7 +296,7 @@ func (aq *AbilitypatientrightsQuery) GroupBy(field string, fields ...string) *Ab
 // Example:
 //
 //	var v []struct {
-//		Operative string `json:"Operative,omitempty"`
+//		Operative int `json:"Operative,omitempty"`
 //	}
 //
 //	client.Abilitypatientrights.Query().

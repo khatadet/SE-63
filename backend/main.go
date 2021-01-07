@@ -51,9 +51,9 @@ type Abilitypatientrightss struct {
 
 // Abilitypatientrights defines the struct for the Abilitypatientrights
 type Abilitypatientrights struct {
-	Operative       string
-    MedicalSupplies string
-    Examine         string
+	Operative       int
+    MedicalSupplies int
+    Examine         int
 }
 
 // Patientrightss defines the struct for the Patientrightss
@@ -172,9 +172,9 @@ func main() {
     // Set Abilitypatientrights Data
 	Abilitypatientrights := Abilitypatientrightss{
 		Abilitypatientrights: []Abilitypatientrights{
-			Abilitypatientrights{"100", "100","100"},
-			Abilitypatientrights{"50", "100","100"},
-			Abilitypatientrights{"50", "100","50"},
+			Abilitypatientrights{100, 100,100},
+			Abilitypatientrights{50, 100,100},
+			Abilitypatientrights{50, 100,50},
 		},
 	}
 

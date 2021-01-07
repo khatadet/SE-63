@@ -1358,15 +1358,15 @@
             "properties": {
                 "Examine": {
                     "description": "Examine holds the value of the \"Examine\" field.",
-                    "type": "string"
+                    "type": "integer"
                 },
                 "MedicalSupplies": {
                     "description": "MedicalSupplies holds the value of the \"MedicalSupplies\" field.",
-                    "type": "string"
+                    "type": "integer"
                 },
                 "Operative": {
                     "description": "Operative holds the value of the \"Operative\" field.",
-                    "type": "string"
+                    "type": "integer"
                 },
                 "edges": {
                     "description": "Edges holds the relations/edges for other nodes in the graph.\nThe values are being populated by the AbilitypatientrightsQuery when eager-loading is set.",

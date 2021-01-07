@@ -21,20 +21,20 @@ type AbilitypatientrightsCreate struct {
 }
 
 // SetOperative sets the Operative field.
-func (ac *AbilitypatientrightsCreate) SetOperative(s string) *AbilitypatientrightsCreate {
-	ac.mutation.SetOperative(s)
+func (ac *AbilitypatientrightsCreate) SetOperative(i int) *AbilitypatientrightsCreate {
+	ac.mutation.SetOperative(i)
 	return ac
 }
 
 // SetMedicalSupplies sets the MedicalSupplies field.
-func (ac *AbilitypatientrightsCreate) SetMedicalSupplies(s string) *AbilitypatientrightsCreate {
-	ac.mutation.SetMedicalSupplies(s)
+func (ac *AbilitypatientrightsCreate) SetMedicalSupplies(i int) *AbilitypatientrightsCreate {
+	ac.mutation.SetMedicalSupplies(i)
 	return ac
 }
 
 // SetExamine sets the Examine field.
-func (ac *AbilitypatientrightsCreate) SetExamine(s string) *AbilitypatientrightsCreate {
-	ac.mutation.SetExamine(s)
+func (ac *AbilitypatientrightsCreate) SetExamine(i int) *AbilitypatientrightsCreate {
+	ac.mutation.SetExamine(i)
 	return ac
 }
 
@@ -131,7 +131,7 @@ func (ac *AbilitypatientrightsCreate) createSpec() (*Abilitypatientrights, *sqlg
 	)
 	if value, ok := ac.mutation.Operative(); ok {
 		_spec.Fields = append(_spec.Fields, &sqlgraph.FieldSpec{
-			Type:   field.TypeString,
+			Type:   field.TypeInt,
 			Value:  value,
 			Column: abilitypatientrights.FieldOperative,
 		})
@@ -139,7 +139,7 @@ func (ac *AbilitypatientrightsCreate) createSpec() (*Abilitypatientrights, *sqlg
 	}
 	if value, ok := ac.mutation.MedicalSupplies(); ok {
 		_spec.Fields = append(_spec.Fields, &sqlgraph.FieldSpec{
-			Type:   field.TypeString,
+			Type:   field.TypeInt,
 			Value:  value,
 			Column: abilitypatientrights.FieldMedicalSupplies,
 		})
@@ -147,7 +147,7 @@ func (ac *AbilitypatientrightsCreate) createSpec() (*Abilitypatientrights, *sqlg
 	}
 	if value, ok := ac.mutation.Examine(); ok {
 		_spec.Fields = append(_spec.Fields, &sqlgraph.FieldSpec{
-			Type:   field.TypeString,
+			Type:   field.TypeInt,
 			Value:  value,
 			Column: abilitypatientrights.FieldExamine,
 		})

@@ -16,13 +16,13 @@ definitions:
     properties:
       Examine:
         description: Examine holds the value of the "Examine" field.
-        type: string
+        type: integer
       MedicalSupplies:
         description: MedicalSupplies holds the value of the "MedicalSupplies" field.
-        type: string
+        type: integer
       Operative:
         description: Operative holds the value of the "Operative" field.
-        type: string
+        type: integer
       edges:
         $ref: '#/definitions/ent.AbilitypatientrightsEdges'
         description: |-

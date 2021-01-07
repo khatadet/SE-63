@@ -15,9 +15,9 @@ type Abilitypatientrights struct {
 // Fields of the Abilitypatientrights.
 func (Abilitypatientrights) Fields() []ent.Field {
 	return []ent.Field{
-		field.String("Operative"),//หัตถการ
-		field.String("MedicalSupplies"),//เวชภัณฑ์
-		field.String("Examine"),//ตรวจสุขภาพ และ ค่า แลป
+		field.Int("Operative"),//หัตถการ
+		field.Int("MedicalSupplies"),//เวชภัณฑ์
+		field.Int("Examine"),//ตรวจสุขภาพ และ ค่า แลป
 			
     }
 }

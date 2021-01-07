@@ -16,11 +16,11 @@ type Abilitypatientrights struct {
 	// ID of the ent.
 	ID int `json:"id,omitempty"`
 	// Operative holds the value of the "Operative" field.
-	Operative string `json:"Operative,omitempty"`
+	Operative int `json:"Operative,omitempty"`
 	// MedicalSupplies holds the value of the "MedicalSupplies" field.
-	MedicalSupplies string `json:"MedicalSupplies,omitempty"`
+	MedicalSupplies int `json:"MedicalSupplies,omitempty"`
 	// Examine holds the value of the "Examine" field.
-	Examine string `json:"Examine,omitempty"`
+	Examine int `json:"Examine,omitempty"`
 	// Edges holds the relations/edges for other nodes in the graph.
 	// The values are being populated by the AbilitypatientrightsQuery when eager-loading is set.
 	Edges AbilitypatientrightsEdges `json:"edges"`
@@ -47,10 +47,10 @@ func (e AbilitypatientrightsEdges) AbilitypatientrightsPatientrightstypeOrErr() 
 // scanValues returns the types for scanning values from sql.Rows.
 func (*Abilitypatientrights) scanValues() []interface{} {
 	return []interface{}{
-		&sql.NullInt64{},  // id
-		&sql.NullString{}, // Operative
-		&sql.NullString{}, // MedicalSupplies
-		&sql.NullString{}, // Examine
+		&sql.NullInt64{}, // id
+		&sql.NullInt64{}, // Operative
+		&sql.NullInt64{}, // MedicalSupplies
+		&sql.NullInt64{}, // Examine
 	}
 }
 
@@ -66,20 +66,20 @@ func (a *Abilitypatientrights) assignValues(values ...interface{}) error {
 	}
 	a.ID = int(value.Int64)
 	values = values[1:]
-	if value, ok := values[0].(*sql.NullString); !ok {
+	if value, ok := values[0].(*sql.NullInt64); !ok {
 		return fmt.Errorf("unexpected type %T for field Operative", values[0])
 	} else if value.Valid {
-		a.Operative = value.String
+		a.Operative = int(value.Int64)
 	}
-	if value, ok := values[1].(*sql.NullString); !ok {
+	if value, ok := values[1].(*sql.NullInt64); !ok {
 		return fmt.Errorf("unexpected type %T for field MedicalSupplies", values[1])
 	} else if value.Valid {
-		a.MedicalSupplies = value.String
+		a.MedicalSupplies = int(value.Int64)
 	}
-	if value, ok := values[2].(*sql.NullString); !ok {
+	if value, ok := values[2].(*sql.NullInt64); !ok {
 		return fmt.Errorf("unexpected type %T for field Examine", values[2])
 	} else if value.Valid {
-		a.Examine = value.String
+		a.Examine = int(value.Int64)
 	}
 	return nil
 }
@@ -113,11 +113,11 @@ func (a *Abilitypatientrights) String() string {
 	builder.WriteString("Abilitypatientrights(")
 	builder.WriteString(fmt.Sprintf("id=%v", a.ID))
 	builder.WriteString(", Operative=")
-	builder.WriteString(a.Operative)
+	builder.WriteString(fmt.Sprintf("%v", a.Operative))
 	builder.WriteString(", MedicalSupplies=")
-	builder.WriteString(a.MedicalSupplies)
+	builder.WriteString(fmt.Sprintf("%v", a.MedicalSupplies))
 	builder.WriteString(", Examine=")
-	builder.WriteString(a.Examine)
+	builder.WriteString(fmt.Sprintf("%v", a.Examine))
 	builder.WriteByte(')')
 	return builder.String()
 }

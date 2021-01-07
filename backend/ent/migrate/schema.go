@@ -11,9 +11,9 @@ var (
 	// AbilitypatientrightsColumns holds the columns for the "abilitypatientrights" table.
 	AbilitypatientrightsColumns = []*schema.Column{
 		{Name: "id", Type: field.TypeInt, Increment: true},
-		{Name: "operative", Type: field.TypeString},
-		{Name: "medical_supplies", Type: field.TypeString},
-		{Name: "examine", Type: field.TypeString},
+		{Name: "operative", Type: field.TypeInt},
+		{Name: "medical_supplies", Type: field.TypeInt},
+		{Name: "examine", Type: field.TypeInt},
 	}
 	// AbilitypatientrightsTable holds the schema information for the "abilitypatientrights" table.
 	AbilitypatientrightsTable = &schema.Table{

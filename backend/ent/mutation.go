@@ -42,9 +42,12 @@ type AbilitypatientrightsMutation struct {
 	op                                            Op
 	typ                                           string
 	id                                            *int
-	_Operative                                    *string
-	_MedicalSupplies                              *string
-	_Examine                                      *string
+	_Operative                                    *int
+	add_Operative                                 *int
+	_MedicalSupplies                              *int
+	add_MedicalSupplies                           *int
+	_Examine                                      *int
+	add_Examine                                   *int
 	clearedFields                                 map[string]struct{}
 	_AbilitypatientrightsPatientrightstype        map[int]struct{}
 	removed_AbilitypatientrightsPatientrightstype map[int]struct{}
@@ -132,12 +135,13 @@ func (m *AbilitypatientrightsMutation) ID() (id int, exists bool) {
 }
 
 // SetOperative sets the Operative field.
-func (m *AbilitypatientrightsMutation) SetOperative(s string) {
-	m._Operative = &s
+func (m *AbilitypatientrightsMutation) SetOperative(i int) {
+	m._Operative = &i
+	m.add_Operative = nil
 }
 
 // Operative returns the Operative value in the mutation.
-func (m *AbilitypatientrightsMutation) Operative() (r string, exists bool) {
+func (m *AbilitypatientrightsMutation) Operative() (r int, exists bool) {
 	v := m._Operative
 	if v == nil {
 		return
@@ -149,7 +153,7 @@ func (m *AbilitypatientrightsMutation) Operative() (r string, exists bool) {
 // If the Abilitypatientrights object wasn't provided to the builder, the object is fetched
 // from the database.
 // An error is returned if the mutation operation is not UpdateOne, or database query fails.
-func (m *AbilitypatientrightsMutation) OldOperative(ctx context.Context) (v string, err error) {
+func (m *AbilitypatientrightsMutation) OldOperative(ctx context.Context) (v int, err error) {
 	if !m.op.Is(OpUpdateOne) {
 		return v, fmt.Errorf("OldOperative is allowed only on UpdateOne operations")
 	}
@@ -163,18 +167,38 @@ func (m *AbilitypatientrightsMutation) OldOperative(ctx context.Context) (v stri
 	return oldValue.Operative, nil
 }
 
+// AddOperative adds i to Operative.
+func (m *AbilitypatientrightsMutation) AddOperative(i int) {
+	if m.add_Operative != nil {
+		*m.add_Operative += i
+	} else {
+		m.add_Operative = &i
+	}
+}
+
+// AddedOperative returns the value that was added to the Operative field in this mutation.
+func (m *AbilitypatientrightsMutation) AddedOperative() (r int, exists bool) {
+	v := m.add_Operative
+	if v == nil {
+		return
+	}
+	return *v, true
+}
+
 // ResetOperative reset all changes of the "Operative" field.
 func (m *AbilitypatientrightsMutation) ResetOperative() {
 	m._Operative = nil
+	m.add_Operative = nil
 }
 
 // SetMedicalSupplies sets the MedicalSupplies field.
-func (m *AbilitypatientrightsMutation) SetMedicalSupplies(s string) {
-	m._MedicalSupplies = &s
+func (m *AbilitypatientrightsMutation) SetMedicalSupplies(i int) {
+	m._MedicalSupplies = &i
+	m.add_MedicalSupplies = nil
 }
 
 // MedicalSupplies returns the MedicalSupplies value in the mutation.
-func (m *AbilitypatientrightsMutation) MedicalSupplies() (r string, exists bool) {
+func (m *AbilitypatientrightsMutation) MedicalSupplies() (r int, exists bool) {
 	v := m._MedicalSupplies
 	if v == nil {
 		return
@@ -186,7 +210,7 @@ func (m *AbilitypatientrightsMutation) MedicalSupplies() (r string, exists bool)
 // If the Abilitypatientrights object wasn't provided to the builder, the object is fetched
 // from the database.
 // An error is returned if the mutation operation is not UpdateOne, or database query fails.
-func (m *AbilitypatientrightsMutation) OldMedicalSupplies(ctx context.Context) (v string, err error) {
+func (m *AbilitypatientrightsMutation) OldMedicalSupplies(ctx context.Context) (v int, err error) {
 	if !m.op.Is(OpUpdateOne) {
 		return v, fmt.Errorf("OldMedicalSupplies is allowed only on UpdateOne operations")
 	}
@@ -200,18 +224,38 @@ func (m *AbilitypatientrightsMutation) OldMedicalSupplies(ctx context.Context) (
 	return oldValue.MedicalSupplies, nil
 }
 
+// AddMedicalSupplies adds i to MedicalSupplies.
+func (m *AbilitypatientrightsMutation) AddMedicalSupplies(i int) {
+	if m.add_MedicalSupplies != nil {
+		*m.add_MedicalSupplies += i
+	} else {
+		m.add_MedicalSupplies = &i
+	}
+}
+
+// AddedMedicalSupplies returns the value that was added to the MedicalSupplies field in this mutation.
+func (m *AbilitypatientrightsMutation) AddedMedicalSupplies() (r int, exists bool) {
+	v := m.add_MedicalSupplies
+	if v == nil {
+		return
+	}
+	return *v, true
+}
+
 // ResetMedicalSupplies reset all changes of the "MedicalSupplies" field.
 func (m *AbilitypatientrightsMutation) ResetMedicalSupplies() {
 	m._MedicalSupplies = nil
+	m.add_MedicalSupplies = nil
 }
 
 // SetExamine sets the Examine field.
-func (m *AbilitypatientrightsMutation) SetExamine(s string) {
-	m._Examine = &s
+func (m *AbilitypatientrightsMutation) SetExamine(i int) {
+	m._Examine = &i
+	m.add_Examine = nil
 }
 
 // Examine returns the Examine value in the mutation.
-func (m *AbilitypatientrightsMutation) Examine() (r string, exists bool) {
+func (m *AbilitypatientrightsMutation) Examine() (r int, exists bool) {
 	v := m._Examine
 	if v == nil {
 		return
@@ -223,7 +267,7 @@ func (m *AbilitypatientrightsMutation) Examine() (r string, exists bool) {
 // If the Abilitypatientrights object wasn't provided to the builder, the object is fetched
 // from the database.
 // An error is returned if the mutation operation is not UpdateOne, or database query fails.
-func (m *AbilitypatientrightsMutation) OldExamine(ctx context.Context) (v string, err error) {
+func (m *AbilitypatientrightsMutation) OldExamine(ctx context.Context) (v int, err error) {
 	if !m.op.Is(OpUpdateOne) {
 		return v, fmt.Errorf("OldExamine is allowed only on UpdateOne operations")
 	}
@@ -237,9 +281,28 @@ func (m *AbilitypatientrightsMutation) OldExamine(ctx context.Context) (v string
 	return oldValue.Examine, nil
 }
 
+// AddExamine adds i to Examine.
+func (m *AbilitypatientrightsMutation) AddExamine(i int) {
+	if m.add_Examine != nil {
+		*m.add_Examine += i
+	} else {
+		m.add_Examine = &i
+	}
+}
+
+// AddedExamine returns the value that was added to the Examine field in this mutation.
+func (m *AbilitypatientrightsMutation) AddedExamine() (r int, exists bool) {
+	v := m.add_Examine
+	if v == nil {
+		return
+	}
+	return *v, true
+}
+
 // ResetExamine reset all changes of the "Examine" field.
 func (m *AbilitypatientrightsMutation) ResetExamine() {
 	m._Examine = nil
+	m.add_Examine = nil
 }
 
 // AddAbilitypatientrightsPatientrightstypeIDs adds the AbilitypatientrightsPatientrightstype edge to Patientrightstype by ids.
@@ -347,21 +410,21 @@ func (m *AbilitypatientrightsMutation) OldField(ctx context.Context, name string
 func (m *AbilitypatientrightsMutation) SetField(name string, value ent.Value) error {
 	switch name {
 	case abilitypatientrights.FieldOperative:
-		v, ok := value.(string)
+		v, ok := value.(int)
 		if !ok {
 			return fmt.Errorf("unexpected type %T for field %s", value, name)
 		}
 		m.SetOperative(v)
 		return nil
 	case abilitypatientrights.FieldMedicalSupplies:
-		v, ok := value.(string)
+		v, ok := value.(int)
 		if !ok {
 			return fmt.Errorf("unexpected type %T for field %s", value, name)
 		}
 		m.SetMedicalSupplies(v)
 		return nil
 	case abilitypatientrights.FieldExamine:
-		v, ok := value.(string)
+		v, ok := value.(int)
 		if !ok {
 			return fmt.Errorf("unexpected type %T for field %s", value, name)
 		}
@@ -374,13 +437,31 @@ func (m *AbilitypatientrightsMutation) SetField(name string, value ent.Value) er
 // AddedFields returns all numeric fields that were incremented
 // or decremented during this mutation.
 func (m *AbilitypatientrightsMutation) AddedFields() []string {
-	return nil
+	var fields []string
+	if m.add_Operative != nil {
+		fields = append(fields, abilitypatientrights.FieldOperative)
+	}
+	if m.add_MedicalSupplies != nil {
+		fields = append(fields, abilitypatientrights.FieldMedicalSupplies)
+	}
+	if m.add_Examine != nil {
+		fields = append(fields, abilitypatientrights.FieldExamine)
+	}
+	return fields
 }
 
 // AddedField returns the numeric value that was in/decremented
 // from a field with the given name. The second value indicates
 // that this field was not set, or was not define in the schema.
 func (m *AbilitypatientrightsMutation) AddedField(name string) (ent.Value, bool) {
+	switch name {
+	case abilitypatientrights.FieldOperative:
+		return m.AddedOperative()
+	case abilitypatientrights.FieldMedicalSupplies:
+		return m.AddedMedicalSupplies()
+	case abilitypatientrights.FieldExamine:
+		return m.AddedExamine()
+	}
 	return nil, false
 }
 
@@ -389,6 +470,27 @@ func (m *AbilitypatientrightsMutation) AddedField(name string) (ent.Value, bool)
 // type mismatch the field type.
 func (m *AbilitypatientrightsMutation) AddField(name string, value ent.Value) error {
 	switch name {
+	case abilitypatientrights.FieldOperative:
+		v, ok := value.(int)
+		if !ok {
+			return fmt.Errorf("unexpected type %T for field %s", value, name)
+		}
+		m.AddOperative(v)
+		return nil
+	case abilitypatientrights.FieldMedicalSupplies:
+		v, ok := value.(int)
+		if !ok {
+			return fmt.Errorf("unexpected type %T for field %s", value, name)
+		}
+		m.AddMedicalSupplies(v)
+		return nil
+	case abilitypatientrights.FieldExamine:
+		v, ok := value.(int)
+		if !ok {
+			return fmt.Errorf("unexpected type %T for field %s", value, name)
+		}
+		m.AddExamine(v)
+		return nil
 	}
 	return fmt.Errorf("unknown Abilitypatientrights numeric field %s", name)
 }

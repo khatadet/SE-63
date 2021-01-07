@@ -29,20 +29,41 @@ func (au *AbilitypatientrightsUpdate) Where(ps ...predicate.Abilitypatientrights
 }
 
 // SetOperative sets the Operative field.
-func (au *AbilitypatientrightsUpdate) SetOperative(s string) *AbilitypatientrightsUpdate {
-	au.mutation.SetOperative(s)
+func (au *AbilitypatientrightsUpdate) SetOperative(i int) *AbilitypatientrightsUpdate {
+	au.mutation.ResetOperative()
+	au.mutation.SetOperative(i)
+	return au
+}
+
+// AddOperative adds i to Operative.
+func (au *AbilitypatientrightsUpdate) AddOperative(i int) *AbilitypatientrightsUpdate {
+	au.mutation.AddOperative(i)
 	return au
 }
 
 // SetMedicalSupplies sets the MedicalSupplies field.
-func (au *AbilitypatientrightsUpdate) SetMedicalSupplies(s string) *AbilitypatientrightsUpdate {
-	au.mutation.SetMedicalSupplies(s)
+func (au *AbilitypatientrightsUpdate) SetMedicalSupplies(i int) *AbilitypatientrightsUpdate {
+	au.mutation.ResetMedicalSupplies()
+	au.mutation.SetMedicalSupplies(i)
+	return au
+}
+
+// AddMedicalSupplies adds i to MedicalSupplies.
+func (au *AbilitypatientrightsUpdate) AddMedicalSupplies(i int) *AbilitypatientrightsUpdate {
+	au.mutation.AddMedicalSupplies(i)
 	return au
 }
 
 // SetExamine sets the Examine field.
-func (au *AbilitypatientrightsUpdate) SetExamine(s string) *AbilitypatientrightsUpdate {
-	au.mutation.SetExamine(s)
+func (au *AbilitypatientrightsUpdate) SetExamine(i int) *AbilitypatientrightsUpdate {
+	au.mutation.ResetExamine()
+	au.mutation.SetExamine(i)
+	return au
+}
+
+// AddExamine adds i to Examine.
+func (au *AbilitypatientrightsUpdate) AddExamine(i int) *AbilitypatientrightsUpdate {
+	au.mutation.AddExamine(i)
 	return au
 }
 
@@ -153,21 +174,42 @@ func (au *AbilitypatientrightsUpdate) sqlSave(ctx context.Context) (n int, err e
 	}
 	if value, ok := au.mutation.Operative(); ok {
 		_spec.Fields.Set = append(_spec.Fields.Set, &sqlgraph.FieldSpec{
-			Type:   field.TypeString,
+			Type:   field.TypeInt,
+			Value:  value,
+			Column: abilitypatientrights.FieldOperative,
+		})
+	}
+	if value, ok := au.mutation.AddedOperative(); ok {
+		_spec.Fields.Add = append(_spec.Fields.Add, &sqlgraph.FieldSpec{
+			Type:   field.TypeInt,
 			Value:  value,
 			Column: abilitypatientrights.FieldOperative,
 		})
 	}
 	if value, ok := au.mutation.MedicalSupplies(); ok {
 		_spec.Fields.Set = append(_spec.Fields.Set, &sqlgraph.FieldSpec{
-			Type:   field.TypeString,
+			Type:   field.TypeInt,
+			Value:  value,
+			Column: abilitypatientrights.FieldMedicalSupplies,
+		})
+	}
+	if value, ok := au.mutation.AddedMedicalSupplies(); ok {
+		_spec.Fields.Add = append(_spec.Fields.Add, &sqlgraph.FieldSpec{
+			Type:   field.TypeInt,
 			Value:  value,
 			Column: abilitypatientrights.FieldMedicalSupplies,
 		})
 	}
 	if value, ok := au.mutation.Examine(); ok {
 		_spec.Fields.Set = append(_spec.Fields.Set, &sqlgraph.FieldSpec{
-			Type:   field.TypeString,
+			Type:   field.TypeInt,
+			Value:  value,
+			Column: abilitypatientrights.FieldExamine,
+		})
+	}
+	if value, ok := au.mutation.AddedExamine(); ok {
+		_spec.Fields.Add = append(_spec.Fields.Add, &sqlgraph.FieldSpec{
+			Type:   field.TypeInt,
 			Value:  value,
 			Column: abilitypatientrights.FieldExamine,
 		})
@@ -229,20 +271,41 @@ type AbilitypatientrightsUpdateOne struct {
 }
 
 // SetOperative sets the Operative field.
-func (auo *AbilitypatientrightsUpdateOne) SetOperative(s string) *AbilitypatientrightsUpdateOne {
-	auo.mutation.SetOperative(s)
+func (auo *AbilitypatientrightsUpdateOne) SetOperative(i int) *AbilitypatientrightsUpdateOne {
+	auo.mutation.ResetOperative()
+	auo.mutation.SetOperative(i)
+	return auo
+}
+
+// AddOperative adds i to Operative.
+func (auo *AbilitypatientrightsUpdateOne) AddOperative(i int) *AbilitypatientrightsUpdateOne {
+	auo.mutation.AddOperative(i)
 	return auo
 }
 
 // SetMedicalSupplies sets the MedicalSupplies field.
-func (auo *AbilitypatientrightsUpdateOne) SetMedicalSupplies(s string) *AbilitypatientrightsUpdateOne {
-	auo.mutation.SetMedicalSupplies(s)
+func (auo *AbilitypatientrightsUpdateOne) SetMedicalSupplies(i int) *AbilitypatientrightsUpdateOne {
+	auo.mutation.ResetMedicalSupplies()
+	auo.mutation.SetMedicalSupplies(i)
+	return auo
+}
+
+// AddMedicalSupplies adds i to MedicalSupplies.
+func (auo *AbilitypatientrightsUpdateOne) AddMedicalSupplies(i int) *AbilitypatientrightsUpdateOne {
+	auo.mutation.AddMedicalSupplies(i)
 	return auo
 }
 
 // SetExamine sets the Examine field.
-func (auo *AbilitypatientrightsUpdateOne) SetExamine(s string) *AbilitypatientrightsUpdateOne {
-	auo.mutation.SetExamine(s)
+func (auo *AbilitypatientrightsUpdateOne) SetExamine(i int) *AbilitypatientrightsUpdateOne {
+	auo.mutation.ResetExamine()
+	auo.mutation.SetExamine(i)
+	return auo
+}
+
+// AddExamine adds i to Examine.
+func (auo *AbilitypatientrightsUpdateOne) AddExamine(i int) *AbilitypatientrightsUpdateOne {
+	auo.mutation.AddExamine(i)
 	return auo
 }
 
@@ -351,21 +414,42 @@ func (auo *AbilitypatientrightsUpdateOne) sqlSave(ctx context.Context) (a *Abili
 	_spec.Node.ID.Value = id
 	if value, ok := auo.mutation.Operative(); ok {
 		_spec.Fields.Set = append(_spec.Fields.Set, &sqlgraph.FieldSpec{
-			Type:   field.TypeString,
+			Type:   field.TypeInt,
+			Value:  value,
+			Column: abilitypatientrights.FieldOperative,
+		})
+	}
+	if value, ok := auo.mutation.AddedOperative(); ok {
+		_spec.Fields.Add = append(_spec.Fields.Add, &sqlgraph.FieldSpec{
+			Type:   field.TypeInt,
 			Value:  value,
 			Column: abilitypatientrights.FieldOperative,
 		})
 	}
 	if value, ok := auo.mutation.MedicalSupplies(); ok {
 		_spec.Fields.Set = append(_spec.Fields.Set, &sqlgraph.FieldSpec{
-			Type:   field.TypeString,
+			Type:   field.TypeInt,
+			Value:  value,
+			Column: abilitypatientrights.FieldMedicalSupplies,
+		})
+	}
+	if value, ok := auo.mutation.AddedMedicalSupplies(); ok {
+		_spec.Fields.Add = append(_spec.Fields.Add, &sqlgraph.FieldSpec{
+			Type:   field.TypeInt,
 			Value:  value,
 			Column: abilitypatientrights.FieldMedicalSupplies,
 		})
 	}
 	if value, ok := auo.mutation.Examine(); ok {
 		_spec.Fields.Set = append(_spec.Fields.Set, &sqlgraph.FieldSpec{
-			Type:   field.TypeString,
+			Type:   field.TypeInt,
+			Value:  value,
+			Column: abilitypatientrights.FieldExamine,
+		})
+	}
+	if value, ok := auo.mutation.AddedExamine(); ok {
+		_spec.Fields.Add = append(_spec.Fields.Add, &sqlgraph.FieldSpec{
+			Type:   field.TypeInt,
 			Value:  value,
 			Column: abilitypatientrights.FieldExamine,
 		})

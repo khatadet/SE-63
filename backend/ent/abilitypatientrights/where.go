@@ -92,42 +92,42 @@ func IDLTE(id int) predicate.Abilitypatientrights {
 }
 
 // Operative applies equality check predicate on the "Operative" field. It's identical to OperativeEQ.
-func Operative(v string) predicate.Abilitypatientrights {
+func Operative(v int) predicate.Abilitypatientrights {
 	return predicate.Abilitypatientrights(func(s *sql.Selector) {
 		s.Where(sql.EQ(s.C(FieldOperative), v))
 	})
 }
 
 // MedicalSupplies applies equality check predicate on the "MedicalSupplies" field. It's identical to MedicalSuppliesEQ.
-func MedicalSupplies(v string) predicate.Abilitypatientrights {
+func MedicalSupplies(v int) predicate.Abilitypatientrights {
 	return predicate.Abilitypatientrights(func(s *sql.Selector) {
 		s.Where(sql.EQ(s.C(FieldMedicalSupplies), v))
 	})
 }
 
 // Examine applies equality check predicate on the "Examine" field. It's identical to ExamineEQ.
-func Examine(v string) predicate.Abilitypatientrights {
+func Examine(v int) predicate.Abilitypatientrights {
 	return predicate.Abilitypatientrights(func(s *sql.Selector) {
 		s.Where(sql.EQ(s.C(FieldExamine), v))
 	})
 }
 
 // OperativeEQ applies the EQ predicate on the "Operative" field.
-func OperativeEQ(v string) predicate.Abilitypatientrights {
+func OperativeEQ(v int) predicate.Abilitypatientrights {
 	return predicate.Abilitypatientrights(func(s *sql.Selector) {
 		s.Where(sql.EQ(s.C(FieldOperative), v))
 	})
 }
 
 // OperativeNEQ applies the NEQ predicate on the "Operative" field.
-func OperativeNEQ(v string) predicate.Abilitypatientrights {
+func OperativeNEQ(v int) predicate.Abilitypatientrights {
 	return predicate.Abilitypatientrights(func(s *sql.Selector) {
 		s.Where(sql.NEQ(s.C(FieldOperative), v))
 	})
 }
 
 // OperativeIn applies the In predicate on the "Operative" field.
-func OperativeIn(vs ...string) predicate.Abilitypatientrights {
+func OperativeIn(vs ...int) predicate.Abilitypatientrights {
 	v := make([]interface{}, len(vs))
 	for i := range v {
 		v[i] = vs[i]
@@ -144,7 +144,7 @@ func OperativeIn(vs ...string) predicate.Abilitypatientrights {
 }
 
 // OperativeNotIn applies the NotIn predicate on the "Operative" field.
-func OperativeNotIn(vs ...string) predicate.Abilitypatientrights {
+func OperativeNotIn(vs ...int) predicate.Abilitypatientrights {
 	v := make([]interface{}, len(vs))
 	for i := range v {
 		v[i] = vs[i]
@@ -161,84 +161,49 @@ func OperativeNotIn(vs ...string) predicate.Abilitypatientrights {
 }
 
 // OperativeGT applies the GT predicate on the "Operative" field.
-func OperativeGT(v string) predicate.Abilitypatientrights {
+func OperativeGT(v int) predicate.Abilitypatientrights {
 	return predicate.Abilitypatientrights(func(s *sql.Selector) {
 		s.Where(sql.GT(s.C(FieldOperative), v))
 	})
 }
 
 // OperativeGTE applies the GTE predicate on the "Operative" field.
-func OperativeGTE(v string) predicate.Abilitypatientrights {
+func OperativeGTE(v int) predicate.Abilitypatientrights {
 	return predicate.Abilitypatientrights(func(s *sql.Selector) {
 		s.Where(sql.GTE(s.C(FieldOperative), v))
 	})
 }
 
 // OperativeLT applies the LT predicate on the "Operative" field.
-func OperativeLT(v string) predicate.Abilitypatientrights {
+func OperativeLT(v int) predicate.Abilitypatientrights {
 	return predicate.Abilitypatientrights(func(s *sql.Selector) {
 		s.Where(sql.LT(s.C(FieldOperative), v))
 	})
 }
 
 // OperativeLTE applies the LTE predicate on the "Operative" field.
-func OperativeLTE(v string) predicate.Abilitypatientrights {
+func OperativeLTE(v int) predicate.Abilitypatientrights {
 	return predicate.Abilitypatientrights(func(s *sql.Selector) {
 		s.Where(sql.LTE(s.C(FieldOperative), v))
 	})
 }
 
-// OperativeContains applies the Contains predicate on the "Operative" field.
-func OperativeContains(v string) predicate.Abilitypatientrights {
-	return predicate.Abilitypatientrights(func(s *sql.Selector) {
-		s.Where(sql.Contains(s.C(FieldOperative), v))
-	})
-}
-
-// OperativeHasPrefix applies the HasPrefix predicate on the "Operative" field.
-func OperativeHasPrefix(v string) predicate.Abilitypatientrights {
-	return predicate.Abilitypatientrights(func(s *sql.Selector) {
-		s.Where(sql.HasPrefix(s.C(FieldOperative), v))
-	})
-}
-
-// OperativeHasSuffix applies the HasSuffix predicate on the "Operative" field.
-func OperativeHasSuffix(v string) predicate.Abilitypatientrights {
-	return predicate.Abilitypatientrights(func(s *sql.Selector) {
-		s.Where(sql.HasSuffix(s.C(FieldOperative), v))
-	})
-}
-
-// OperativeEqualFold applies the EqualFold predicate on the "Operative" field.
-func OperativeEqualFold(v string) predicate.Abilitypatientrights {
-	return predicate.Abilitypatientrights(func(s *sql.Selector) {
-		s.Where(sql.EqualFold(s.C(FieldOperative), v))
-	})
-}
-
-// OperativeContainsFold applies the ContainsFold predicate on the "Operative" field.
-func OperativeContainsFold(v string) predicate.Abilitypatientrights {
-	return predicate.Abilitypatientrights(func(s *sql.Selector) {
-		s.Where(sql.ContainsFold(s.C(FieldOperative), v))
-	})
-}
-
 // MedicalSuppliesEQ applies the EQ predicate on the "MedicalSupplies" field.
-func MedicalSuppliesEQ(v string) predicate.Abilitypatientrights {
+func MedicalSuppliesEQ(v int) predicate.Abilitypatientrights {
 	return predicate.Abilitypatientrights(func(s *sql.Selector) {
 		s.Where(sql.EQ(s.C(FieldMedicalSupplies), v))
 	})
 }
 
 // MedicalSuppliesNEQ applies the NEQ predicate on the "MedicalSupplies" field.
-func MedicalSuppliesNEQ(v string) predicate.Abilitypatientrights {
+func MedicalSuppliesNEQ(v int) predicate.Abilitypatientrights {
 	return predicate.Abilitypatientrights(func(s *sql.Selector) {
 		s.Where(sql.NEQ(s.C(FieldMedicalSupplies), v))
 	})
 }
 
 // MedicalSuppliesIn applies the In predicate on the "MedicalSupplies" field.
-func MedicalSuppliesIn(vs ...string) predicate.Abilitypatientrights {
+func MedicalSuppliesIn(vs ...int) predicate.Abilitypatientrights {
 	v := make([]interface{}, len(vs))
 	for i := range v {
 		v[i] = vs[i]
@@ -255,7 +220,7 @@ func MedicalSuppliesIn(vs ...string) predicate.Abilitypatientrights {
 }
 
 // MedicalSuppliesNotIn applies the NotIn predicate on the "MedicalSupplies" field.
-func MedicalSuppliesNotIn(vs ...string) predicate.Abilitypatientrights {
+func MedicalSuppliesNotIn(vs ...int) predicate.Abilitypatientrights {
 	v := make([]interface{}, len(vs))
 	for i := range v {
 		v[i] = vs[i]
@@ -272,84 +237,49 @@ func MedicalSuppliesNotIn(vs ...string) predicate.Abilitypatientrights {
 }
 
 // MedicalSuppliesGT applies the GT predicate on the "MedicalSupplies" field.
-func MedicalSuppliesGT(v string) predicate.Abilitypatientrights {
+func MedicalSuppliesGT(v int) predicate.Abilitypatientrights {
 	return predicate.Abilitypatientrights(func(s *sql.Selector) {
 		s.Where(sql.GT(s.C(FieldMedicalSupplies), v))
 	})
 }
 
 // MedicalSuppliesGTE applies the GTE predicate on the "MedicalSupplies" field.
-func MedicalSuppliesGTE(v string) predicate.Abilitypatientrights {
+func MedicalSuppliesGTE(v int) predicate.Abilitypatientrights {
 	return predicate.Abilitypatientrights(func(s *sql.Selector) {
 		s.Where(sql.GTE(s.C(FieldMedicalSupplies), v))
 	})
 }
 
 // MedicalSuppliesLT applies the LT predicate on the "MedicalSupplies" field.
-func MedicalSuppliesLT(v string) predicate.Abilitypatientrights {
+func MedicalSuppliesLT(v int) predicate.Abilitypatientrights {
 	return predicate.Abilitypatientrights(func(s *sql.Selector) {
 		s.Where(sql.LT(s.C(FieldMedicalSupplies), v))
 	})
 }
 
 // MedicalSuppliesLTE applies the LTE predicate on the "MedicalSupplies" field.
-func MedicalSuppliesLTE(v string) predicate.Abilitypatientrights {
+func MedicalSuppliesLTE(v int) predicate.Abilitypatientrights {
 	return predicate.Abilitypatientrights(func(s *sql.Selector) {
 		s.Where(sql.LTE(s.C(FieldMedicalSupplies), v))
 	})
 }
 
-// MedicalSuppliesContains applies the Contains predicate on the "MedicalSupplies" field.
-func MedicalSuppliesContains(v string) predicate.Abilitypatientrights {
-	return predicate.Abilitypatientrights(func(s *sql.Selector) {
-		s.Where(sql.Contains(s.C(FieldMedicalSupplies), v))
-	})
-}
-
-// MedicalSuppliesHasPrefix applies the HasPrefix predicate on the "MedicalSupplies" field.
-func MedicalSuppliesHasPrefix(v string) predicate.Abilitypatientrights {
-	return predicate.Abilitypatientrights(func(s *sql.Selector) {
-		s.Where(sql.HasPrefix(s.C(FieldMedicalSupplies), v))
-	})
-}
-
-// MedicalSuppliesHasSuffix applies the HasSuffix predicate on the "MedicalSupplies" field.
-func MedicalSuppliesHasSuffix(v string) predicate.Abilitypatientrights {
-	return predicate.Abilitypatientrights(func(s *sql.Selector) {
-		s.Where(sql.HasSuffix(s.C(FieldMedicalSupplies), v))
-	})
-}
-
-// MedicalSuppliesEqualFold applies the EqualFold predicate on the "MedicalSupplies" field.
-func MedicalSuppliesEqualFold(v string) predicate.Abilitypatientrights {
-	return predicate.Abilitypatientrights(func(s *sql.Selector) {
-		s.Where(sql.EqualFold(s.C(FieldMedicalSupplies), v))
-	})
-}
-
-// MedicalSuppliesContainsFold applies the ContainsFold predicate on the "MedicalSupplies" field.
-func MedicalSuppliesContainsFold(v string) predicate.Abilitypatientrights {
-	return predicate.Abilitypatientrights(func(s *sql.Selector) {
-		s.Where(sql.ContainsFold(s.C(FieldMedicalSupplies), v))
-	})
-}
-
 // ExamineEQ applies the EQ predicate on the "Examine" field.
-func ExamineEQ(v string) predicate.Abilitypatientrights {
+func ExamineEQ(v int) predicate.Abilitypatientrights {
 	return predicate.Abilitypatientrights(func(s *sql.Selector) {
 		s.Where(sql.EQ(s.C(FieldExamine), v))
 	})
 }
 
 // ExamineNEQ applies the NEQ predicate on the "Examine" field.
-func ExamineNEQ(v string) predicate.Abilitypatientrights {
+func ExamineNEQ(v int) predicate.Abilitypatientrights {
 	return predicate.Abilitypatientrights(func(s *sql.Selector) {
 		s.Where(sql.NEQ(s.C(FieldExamine), v))
 	})
 }
 
 // ExamineIn applies the In predicate on the "Examine" field.
-func ExamineIn(vs ...string) predicate.Abilitypatientrights {
+func ExamineIn(vs ...int) predicate.Abilitypatientrights {
 	v := make([]interface{}, len(vs))
 	for i := range v {
 		v[i] = vs[i]
@@ -366,7 +296,7 @@ func ExamineIn(vs ...string) predicate.Abilitypatientrights {
 }
 
 // ExamineNotIn applies the NotIn predicate on the "Examine" field.
-func ExamineNotIn(vs ...string) predicate.Abilitypatientrights {
+func ExamineNotIn(vs ...int) predicate.Abilitypatientrights {
 	v := make([]interface{}, len(vs))
 	for i := range v {
 		v[i] = vs[i]
@@ -383,65 +313,30 @@ func ExamineNotIn(vs ...string) predicate.Abilitypatientrights {
 }
 
 // ExamineGT applies the GT predicate on the "Examine" field.
-func ExamineGT(v string) predicate.Abilitypatientrights {
+func ExamineGT(v int) predicate.Abilitypatientrights {
 	return predicate.Abilitypatientrights(func(s *sql.Selector) {
 		s.Where(sql.GT(s.C(FieldExamine), v))
 	})
 }
 
 // ExamineGTE applies the GTE predicate on the "Examine" field.
-func ExamineGTE(v string) predicate.Abilitypatientrights {
+func ExamineGTE(v int) predicate.Abilitypatientrights {
 	return predicate.Abilitypatientrights(func(s *sql.Selector) {
 		s.Where(sql.GTE(s.C(FieldExamine), v))
 	})
 }
 
 // ExamineLT applies the LT predicate on the "Examine" field.
-func ExamineLT(v string) predicate.Abilitypatientrights {
+func ExamineLT(v int) predicate.Abilitypatientrights {
 	return predicate.Abilitypatientrights(func(s *sql.Selector) {
 		s.Where(sql.LT(s.C(FieldExamine), v))
 	})
 }
 
 // ExamineLTE applies the LTE predicate on the "Examine" field.
-func ExamineLTE(v string) predicate.Abilitypatientrights {
+func ExamineLTE(v int) predicate.Abilitypatientrights {
 	return predicate.Abilitypatientrights(func(s *sql.Selector) {
 		s.Where(sql.LTE(s.C(FieldExamine), v))
-	})
-}
-
-// ExamineContains applies the Contains predicate on the "Examine" field.
-func ExamineContains(v string) predicate.Abilitypatientrights {
-	return predicate.Abilitypatientrights(func(s *sql.Selector) {
-		s.Where(sql.Contains(s.C(FieldExamine), v))
-	})
-}
-
-// ExamineHasPrefix applies the HasPrefix predicate on the "Examine" field.
-func ExamineHasPrefix(v string) predicate.Abilitypatientrights {
-	return predicate.Abilitypatientrights(func(s *sql.Selector) {
-		s.Where(sql.HasPrefix(s.C(FieldExamine), v))
-	})
-}
-
-// ExamineHasSuffix applies the HasSuffix predicate on the "Examine" field.
-func ExamineHasSuffix(v string) predicate.Abilitypatientrights {
-	return predicate.Abilitypatientrights(func(s *sql.Selector) {
-		s.Where(sql.HasSuffix(s.C(FieldExamine), v))
-	})
-}
-
-// ExamineEqualFold applies the EqualFold predicate on the "Examine" field.
-func ExamineEqualFold(v string) predicate.Abilitypatientrights {
-	return predicate.Abilitypatientrights(func(s *sql.Selector) {
-		s.Where(sql.EqualFold(s.C(FieldExamine), v))
-	})
-}
-
-// ExamineContainsFold applies the ContainsFold predicate on the "Examine" field.
-func ExamineContainsFold(v string) predicate.Abilitypatientrights {
-	return predicate.Abilitypatientrights(func(s *sql.Selector) {
-		s.Where(sql.ContainsFold(s.C(FieldExamine), v))
 	})
 }
 

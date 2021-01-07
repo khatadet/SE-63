@@ -36,9 +36,9 @@ func (ctl *AbilitypatientrightsController) CreateAbilitypatientrights(c *gin.Con
   
 	u, err := ctl.client.Abilitypatientrights.
 		Create().
-		SetOperative(obj.Operative).
-		SetMedicalSupplies(obj.MedicalSupplies).
-		SetExamine(obj.Examine).
+		SetOperative(int(obj.Operative)).
+		SetMedicalSupplies(int(obj.MedicalSupplies)).
+		SetExamine(int(obj.Examine)).
 		Save(context.Background())
 	if err != nil {
 		c.JSON(400, gin.H{
