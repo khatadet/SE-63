@@ -95,15 +95,14 @@ const NewPatientright: FC<{}> = () => {
   const profile = { givenName: 'สิทธ์' };
   const http = new DefaultApi();
 
-  const [Patientrights, setPatientrights] =            React.useState<Partial<Patientrights_Type>>({});
-
+  const [Patientrights, setPatientrights] =             React.useState<Partial<Patientrights_Type>>({});
   const [Patientrightstype, setPatientrightstype] =     React.useState<EntPatientrightstype[]>([]);
-  const [Patientrecord, setPatientrecord] =     React.useState<EntPatientrecord[]>([]);
+  const [Patientrecord, setPatientrecord] =             React.useState<EntPatientrecord[]>([]);
  
- const [Insurance, setInsurance] =  React.useState<EntInsurance[]>([]);
- const [Medicalrecordstaff, setMedicalrecordstaff] =            React.useState<EntMedicalrecordstaff[]>([]);
- const [status, setStatus] = React.useState(false);
- const [alert, setAlert] = React.useState(true);
+  const [Insurance, setInsurance] =                     React.useState<EntInsurance[]>([]);
+  const [Medicalrecordstaff, setMedicalrecordstaff] =   React.useState<EntMedicalrecordstaff[]>([]);
+  const [status, setStatus] =                           React.useState(false);
+  const [alert, setAlert] =                             React.useState(true);
 
 
   const getMedicalrecordstaffs = async () => {
