@@ -54,7 +54,6 @@ export default function ComponentsTable() {
   const res = await api.deletePatientrights({ id: id });
   setLoading(true);
 };
-
  
  return (
    <TableContainer component={Paper}>

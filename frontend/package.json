@@ -42,5 +42,8 @@
     "*.{json,md}": [
       "prettier --write"
     ]
+  },
+  "dependencies": {
+    "react-cookie": "^4.0.3"
   }
 }
