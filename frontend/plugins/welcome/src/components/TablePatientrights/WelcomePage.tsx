@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import ComponanceTable from '../Table_Patientrightstype';
+import ComponanceTable from './Tables';
 import Button from '@material-ui/core/Button';
 import Timer from '../Timer';
 import {
