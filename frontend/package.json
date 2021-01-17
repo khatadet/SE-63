@@ -27,6 +27,7 @@
   "devDependencies": {
     "@backstage/cli": "^0.1.1-alpha.18",
     "@spotify/prettier-config": "^7.0.0",
+    "copy-webpack-plugin": "^7.0.0",
     "lerna": "^3.20.2",
     "prettier": "^1.19.1"
   },
@@ -44,6 +45,8 @@
     ]
   },
   "dependencies": {
-    "react-cookie": "^4.0.3"
+    "@react-pdf/renderer": "^1.6.12",
+    "react-cookie": "^4.0.3",
+    "react-pdf": "^5.1.0"
   }
 }

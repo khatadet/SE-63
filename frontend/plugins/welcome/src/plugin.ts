@@ -3,8 +3,8 @@ import WelcomePage from './components/WelcomePage';
 
 import  create from './components/create_Patientrights';
 import Login from './components/Login';
-//import  create_Abilitypatientrights from './components/create_Abilitypatientrights';
-//import  create_Insurance from './components/create_Insurance';
+import  pdf from './components/pdf';
+import  TablePatientrights from './components/TablePatientrights';
 import  create_Patientrightstype from './components/TablePatientrights';
 
 
@@ -16,8 +16,8 @@ export const plugin = createPlugin({
 
     router.registerRoute('/create', create);
 
-    //router.registerRoute('/create_Abilitypatientrights', create_Abilitypatientrights);
-    //router.registerRoute('/create_Insurance', create_Insurance);
+    router.registerRoute('/pdf', pdf);
+    router.registerRoute('/TablePatientrights', TablePatientrights);
     router.registerRoute('/acc', create_Patientrightstype);
 
 

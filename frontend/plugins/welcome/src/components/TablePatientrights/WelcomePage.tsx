@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import ComponanceTable from './Tables';
 import Button from '@material-ui/core/Button';
+import ReactPDF from '@react-pdf/renderer';
 import Timer from '../Timer';
 import {
  Content,
@@ -14,6 +15,12 @@ import {
  
 const WelcomePage: FC<{}> = () => {
  const profile = { givenName: 'ระบบ สัญญาเช่า' };
+
+
+ const pdf = () => {
+  ReactPDF.render(<ComponanceTable />, `ha/example.pdf`);
+};
+ 
  
  return (
    <Page theme={pageTheme.home}>
@@ -26,7 +33,15 @@ const WelcomePage: FC<{}> = () => {
 
 
        <ContentHeader title="สัญญาเช่า">
-         
+       <Button
+               onClick={() => {
+                pdf();
+               }}
+               variant="contained"
+               color="primary"
+             >
+               Submit
+             </Button>
          <Link component={RouterLink} to="">
            <Button variant="contained" color="primary">
            กลับสู่หน้าหลัก

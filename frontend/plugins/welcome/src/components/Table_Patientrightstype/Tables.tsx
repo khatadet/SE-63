@@ -84,16 +84,7 @@ export default function ComponentsTable() {
              <TableCell align="center">{item.edges.patientrightstypeAbilitypatientrights.id}</TableCell>
              <TableCell align="center">{item.edges.patientrightstypeAbilitypatientrights.operative }-{item.edges.patientrightstypeAbilitypatientrights.medicalSupplies}-{item.edges.patientrightstypeAbilitypatientrights.examine}</TableCell>
              <TableCell align="center">
-               <Button
-                 onClick={() => {
-                  deletePatientrightstypes(item.id);
-                 }}
-                 style={{ marginLeft: 10 }}
-                 variant="contained"
-                 color="secondary"
-               >
-                 Delete
-               </Button>
+               
              </TableCell>
 
                
