@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "engines": {
-    "node": "12"
+    "node": "22"
   },
   "scripts": {
     "start": "yarn workspace app start",
